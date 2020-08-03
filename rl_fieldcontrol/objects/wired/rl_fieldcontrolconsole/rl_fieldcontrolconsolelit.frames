@@ -1,0 +1,18 @@
+{
+
+  "frameGrid" : {
+    "size" : [24, 24],
+    "dimensions" : [4, 4],
+    "names" : [
+      [ "unregistered.1", "unregistered.2", "unregistered.3", "unregistered.4"],
+      [ "shieldsdown.1", "shieldsdown.2", "shieldsdown.3", "shieldsdown.4"],
+      [ "shieldsup.1", "shieldsup.2", "shieldsup.3", "shieldsup.4"],
+      [ "bulkhead" ]
+    ]
+  },
+
+  "aliases" : {
+    "default.default" : "unregistered.1",
+    "default" : "default.default"
+  }
+}

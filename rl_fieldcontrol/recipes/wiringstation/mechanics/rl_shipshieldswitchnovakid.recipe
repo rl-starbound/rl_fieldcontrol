@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "durasteelbar", "count" : 20 },
+    { "item" : "diamond", "count" : 3 },
+    { "item" : "siliconboard", "count" : 3 },
+    { "item" : "wire", "count" : 10 },
+    { "item" : "battery", "count" : 1 }
+  ],
+  "output" : { "item" : "rl_shipshieldswitchnovakid", "count" : 1 },
+  "groups" : [ "craftingwiring", "mechanics" ]
+}

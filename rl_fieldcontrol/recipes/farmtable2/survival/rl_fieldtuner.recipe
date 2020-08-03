@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "solariumstar", "count" : 15 },
+    { "item" : "diamond", "count" : 1 },
+    { "item" : "siliconboard", "count" : 1 },
+    { "item" : "wire", "count" : 6 },
+    { "item" : "smallbattery", "count" : 4 }
+  ],
+  "output" : { "item" : "rl_fieldtuner", "count" : 1 },
+  "groups" : [ "craftingfarm2", "survival" ]
+}

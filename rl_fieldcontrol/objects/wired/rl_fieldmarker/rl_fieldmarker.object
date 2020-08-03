@@ -1,0 +1,56 @@
+{
+  "objectName" : "rl_fieldmarker",
+  "colonyTags" : ["electronic","wired"],
+  "printable" : false,
+  "rarity" : "Common",
+  "description" : "Marks the edge of an environmental field for use with a Field Tuner XL.",
+  "shortdescription" : "Field Tuning Marker",
+  "race" : "generic",
+  "category" : "wire",
+  "price" : 50,
+
+  "apexDescription" : "This appears to be a marker for assistance in tuning an environmental field.",
+  "avianDescription" : "A marker indicating the edge of an environmental field.",
+  "floranDescription" : "Ssmall box marksss field edge.",
+  "glitchDescription" : "Interested. This device marks the border of an environmental field.",
+  "humanDescription" : "I can use this to mark the edge of an environmental field.",
+  "hylotlDescription" : "This device appears to delineate the boundary of an environmental field.",
+  "novakidDescription" : "This here box shows where a field stops.",
+
+  "inventoryIcon" : "rl_fieldmarkericon.png",
+  "orientations" : [
+    {
+      "image" : "rl_fieldmarker.png:default",
+      "imagePosition" : [0, 0],
+
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    },
+    {
+      "image" : "rl_fieldmarker.png:default",
+      "imagePosition" : [0, 0],
+
+      "direction" : "left",
+      "flipImages" : true,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+  ],
+
+  "scripts" : [ "rl_fieldmarker.lua" ],
+  "scriptDelta" : 0,
+
+  "animation" : "/objects/wired/light/lighttogglebgfullbright.animation",
+  "animationParts" : {
+    "bg" : "rl_fieldmarker.png",
+    "fg" : "rl_fieldmarkerlit.png"
+  },
+  "animationPosition" : [0, 0],
+
+  "interactive" : false,
+
+  "inputNodes" : [ [0, 0] ]
+}

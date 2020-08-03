@@ -1,0 +1,101 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "consoleState" : {
+        "default" : "unregistered",
+        "states" : {
+          "unregistered" : {
+            "frames" : 4,
+            "cycle" : 2,
+            "mode" : "loop"
+          },
+          "shieldsdown" : {
+            "frames" : 4,
+            "cycle" : 2,
+            "mode" : "loop"
+          },
+          "shieldsup" : {
+            "frames" : 4,
+            "cycle" : 2,
+            "mode" : "loop"
+          },
+          "bulkhead" : {}
+        }
+      }
+    },
+
+    "parts" : {
+      "bg" : {
+        "properties" : {
+          "centered" : false
+        },
+
+        "partStates" : {
+          "consoleState" : {
+            "unregistered" : {
+              "properties" : {
+                "image" : "<partImage>:unregistered.<frame>",
+                "fullbright" : true
+              }
+            },
+            "shieldsdown" : {
+              "properties" : {
+                "image" : "<partImage>:shieldsdown.<frame>",
+                "fullbright" : true
+              }
+            },
+            "shieldsup" : {
+              "properties" : {
+                "image" : "<partImage>:shieldsup.<frame>",
+                "fullbright" : true
+              }
+            },
+            "bulkhead" : {
+              "properties" : {
+                "image" : "<partImage>:bulkhead"
+              }
+            }
+          }
+        }
+      },
+      "fg" : {
+        "properties" : {
+          "centered" : false,
+          "zLevel" : 1
+        },
+
+        "partStates" : {
+          "consoleState" : {
+            "unregistered" : {
+              "properties" : {
+                "image" : "<partImage>:unregistered.<frame>"
+              }
+            },
+            "shieldsdown" : {
+              "properties" : {
+                "image" : "<partImage>:shieldsdown.<frame>"
+              }
+            },
+            "shieldsup" : {
+              "properties" : {
+                "image" : "<partImage>:shieldsup.<frame>"
+              }
+            },
+            "bulkhead" : {
+              "properties" : {
+                "image" : "<partImage>:bulkhead"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "sounds" : {
+    "register" : [ "/sfx/interface/energy_full2.ogg" ],
+    "deregister" : [ "/sfx/interface/energy_out2.ogg" ],
+    "shieldsUp" : [ "/sfx/interface/energy_full1.ogg" ],
+    "shieldsDown" : [ "/sfx/interface/energy_out1.ogg" ]
+  }
+}

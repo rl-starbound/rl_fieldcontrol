@@ -1,0 +1,56 @@
+{
+  "objectName" : "rl_shipshieldswitchfloran",
+  "colonyTags" : ["electronic","wired"],
+  "printable" : false,
+  "rarity" : "Rare",
+  "description" : "A switch to control a ship's shield.\n^red;Must be placed on a ship.",
+  "shortdescription" : "Ship Shield Switch",
+  "race" : "generic",
+  "category" : "wire",
+  "price" : 2000,
+
+  "apexDescription" : "A switch. It activates the ship's shield.",
+  "avianDescription" : "This switch activates the ship's shield.",
+  "floranDescription" : "Ssshield!",
+  "glitchDescription" : "Surprised. This switch activates the ship's shield.",
+  "humanDescription" : "I can use this switch to control the ship's shield.",
+  "hylotlDescription" : "A basic switch. It can be used to activate the ship's shield.",
+  "novakidDescription" : "I can use this here switch to toggle the ship's shield.",
+
+  "inventoryIcon" : "rl_shipshieldswitchfloranicon.png",
+  "orientations" : [
+    {
+      "image" : "rl_shipshieldswitchfloran.png:dead",
+      "imagePosition" : [-8, -8],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ],
+      "direction" : "right"
+    }
+  ],
+
+  "health" : 10,
+
+  "scripts" : [ "rl_shieldswitch.lua" ],
+  "scriptDelta" : 60,
+
+  "lightColor" : [31, 40, 51],
+  "lightColorError" : [51, 40, 31],
+
+  "animation" : "rl_shieldswitch.animation",
+  "animationParts" : {
+    "bg" : "rl_shipshieldswitchfloran.png",
+    "fg" : "rl_shipshieldswitchfloranlit.png"
+  },
+  "animationCustom" : {},
+  "animationPosition" : [-8, -8],
+
+  "keepAlive" : true,
+
+  "dungeonIds" : [65531, 65532, 65535],
+  "shieldUniqueId" : "rl_shieldswitch",
+  "techstationUid" : "techstation",
+  "validWorldType" : "clientshipworld",
+
+  "outputNodes" : [ [0, -1] ]
+}

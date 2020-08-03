@@ -1,0 +1,22 @@
+[
+  { "op" : "add",
+    "path" : "/defaultBlueprints/tier1/-",
+    "value" : { "item" : "rl_fieldcontrolconsole" }
+  },
+  { "op" : "add",
+    "path" : "/defaultBlueprints/tier1/-",
+    "value" : { "item" : "rl_fieldmarker" }
+  },
+  { "op" : "add",
+    "path" : "/defaultBlueprints/tier1/-",
+    "value" : { "item" : "rl_fieldtuner" }
+  },
+  { "op" : "add",
+    "path" : "/defaultBlueprints/tier1/-",
+    "value" : { "item" : "rl_fieldtunerxl" }
+  },
+  { "op" : "add",
+    "path" : "/defaultBlueprints/tier1/-",
+    "value" : { "item" : "rl_stationshieldswitch" }
+  }
+]

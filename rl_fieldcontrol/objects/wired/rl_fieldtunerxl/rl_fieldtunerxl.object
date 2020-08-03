@@ -1,0 +1,77 @@
+{
+  "objectName" : "rl_fieldtunerxl",
+  "colonyTags" : ["electronic","wired"],
+  "printable" : false,
+  "rarity" : "Legendary",
+  "description" : "Tunes nearby environmental fields for alignment with a Field Control Console.",
+  "shortdescription" : "Field Tuner XL",
+  "race" : "generic",
+  "category" : "wire",
+  "price" : 2500,
+
+  "apexDescription" : "This advanced console can tune environmental fields at large scale.",
+  "avianDescription" : "A terminal for tuning massive environmental fields.",
+  "floranDescription" : "Thisss letss Floran tune big fieldss.",
+  "glitchDescription" : "Interested. This terminal is able to tune large environmental fields.",
+  "humanDescription" : "I can use this to tune huge environmental fields.",
+  "hylotlDescription" : "This advanced terminal enables large scale tuning of environmental fields.",
+  "novakidDescription" : "A fancy radio for tunin' big fields.",
+
+  "inventoryIcon" : "rl_fieldtunerxlicon.png",
+  "orientations" : [
+    {
+      "image" : "rl_fieldtunerxl.png:inactive",
+      "imagePosition" : [-16, 0],
+
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "spaces" : [
+        [-2, 4], [-1, 4], [0, 4], [1, 4],
+        [-2, 3], [-1, 3], [0, 3], [1, 3],
+        [-2, 2], [-1, 2], [0, 2], [1, 2],
+        [-2, 1], [-1, 1], [0, 1], [1, 1],
+        [-2, 0], [-1, 0], [0, 0], [1, 0]
+      ]
+    },
+    {
+      "image" : "rl_fieldtunerxl.png:inactive",
+      "imagePosition" : [-16, 0],
+
+      "direction" : "left",
+      "flipImages" : true,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "spaces" : [
+        [-2, 4], [-1, 4], [0, 4], [1, 4],
+        [-2, 3], [-1, 3], [0, 3], [1, 3],
+        [-2, 2], [-1, 2], [0, 2], [1, 2],
+        [-2, 1], [-1, 1], [0, 1], [1, 1],
+        [-2, 0], [-1, 0], [0, 0], [1, 0]
+      ]
+    }
+  ],
+
+  "health" : 10,
+
+  "scripts" : [ "rl_fieldtunerxl.lua" ],
+  "scriptDelta" : 10,
+
+  "blockOffsets" : [-2, 0, 2, 5],
+  "lightColorOn" : [31, 40, 51],
+  "lightPosition" : [-1, 0],
+
+  "animation" : "rl_fieldtunerxl.animation",
+  "animationParts" : {
+    "bg" : "rl_fieldtunerxl.png",
+    "fg" : "rl_fieldtunerxllit.png"
+  },
+  "animationPosition" : [-16, 0],
+
+  "outputNodes" : [ [1, 0] ],
+
+  "interactAction" : "ScriptPane",
+  "interactData" : "/interface/scripted/rl_fieldtunerxl/rl_fieldtunerxlgui.config"
+}

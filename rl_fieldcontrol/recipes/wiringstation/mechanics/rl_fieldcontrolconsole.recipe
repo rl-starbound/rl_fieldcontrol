@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "durasteelbar", "count" : 30 },
+    { "item" : "diamond", "count" : 5 },
+    { "item" : "siliconboard", "count" : 5 },
+    { "item" : "wire", "count" : 14 },
+    { "item" : "battery", "count" : 1 }
+  ],
+  "output" : { "item" : "rl_fieldcontrolconsole", "count" : 1 },
+  "groups" : [ "craftingwiring", "mechanics" ]
+}

@@ -1,0 +1,8 @@
+{
+  "type" : "rl_fieldmanager",
+
+  "scripts" : [
+    "/stagehands/rl_fieldmanager.lua"
+  ],
+  "scriptDelta" : 0
+}

@@ -1,0 +1,37 @@
+{
+  "itemName" : "rl_fieldtuner",
+  "price" : 1500,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "Tunes nearby environmental fields for alignment with a Field Control Console.",
+  "shortdescription" : "Portable Field Tuner",
+  "twoHanded" : true,
+  "category" : "Tool",
+  "itemTags" : ["tool"],
+
+  "blockOffsets" : [2, 3],
+  "shiftBlockOffsets" : [0, 1],
+  "primaryCooldownTime" : 0.0667,
+  "altCooldownTime" : 0.5,
+  "fireFailCooldownTime" : 1,
+  "maxDistance" : 16,
+
+  "inventoryIcon" : "rl_fieldtunericon.png",
+  "animation" : "rl_fieldtuner.animation",
+  "animationParts" : {
+    "tuner" : "rl_fieldtuner.png",
+    "tunerfullbright" : "rl_fieldtunerfullbright.png"
+  },
+  "animationCustom" : {},
+
+  "animationScripts" : ["/items/active/effects/rl_fieldtunerscanner.lua"],
+  "animationDelta" : 1,
+
+  "scripts" : ["rl_fieldtuner.lua"],
+  "scriptDelta" : 1,
+
+  "scannerConfig" : {
+    "image" : "/items/active/unsorted/rl_fieldtuner/rl_fieldtunerscanner.png:<variant>",
+    "colors" : [[0, 0, 255, 128], [0, 255, 0, 128], [255, 0, 0, 128]]
+  }
+}

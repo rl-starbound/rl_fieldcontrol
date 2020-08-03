@@ -1,0 +1,58 @@
+{
+  "objectName" : "rl_fieldcontrolconsole",
+  "colonyTags" : ["electronic","wired"],
+  "printable" : false,
+  "rarity" : "Rare",
+  "description" : "A console for controlling environmental fields.",
+  "shortdescription" : "Field Control Console",
+  "race" : "generic",
+  "category" : "wire",
+  "price" : 3000,
+
+  "apexDescription" : "This advanced console can control environmental fields.",
+  "avianDescription" : "A terminal for controlling environmental fields.",
+  "floranDescription" : "Thisss letss Floran control fieldss.",
+  "glitchDescription" : "Interested. This terminal is able to control environmental fields.",
+  "humanDescription" : "This terminal controls environmental fields.",
+  "hylotlDescription" : "This advanced terminal is designed to control environmental fields.",
+  "novakidDescription" : "A fancy computer for adjustin' the environment.",
+
+  "inventoryIcon" : "rl_fieldcontrolconsoleicon.png",
+  "orientations" : [
+    {
+      "imageLayers" : [
+        {
+          "image" : "rl_fieldcontrolconsole.png:default",
+          "fullbright" : true
+        }, {
+          "image" : "rl_fieldcontrolconsolelit.png:default"
+        }
+      ],
+      "imagePosition" : [-16, -8],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ],
+      "direction" : "right"
+    }
+  ],
+
+  "health" : 10,
+
+  "scripts" : [ "rl_fieldcontrolconsole.lua" ],
+  "scriptDelta" : 60,
+
+  "blockOffsets" : [-2, -1, 1, 2],
+  "lightColorOn" : [46, 60, 77],
+  "lightPosition" : [-1, 0],
+
+  "animation" : "rl_fieldcontrolconsole.animation",
+  "animationParts" : {
+    "bg" : "rl_fieldcontrolconsole.png",
+    "fg" : "rl_fieldcontrolconsolelit.png"
+  },
+  "animationCustom" : {},
+  "animationPosition" : [-16, -8],
+
+  "interactAction" : "ScriptPane",
+  "interactData" : "/interface/scripted/rl_fieldcontrolconsole/rl_fieldcontrolconsolegui.config"
+}
