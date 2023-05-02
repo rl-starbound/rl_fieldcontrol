@@ -11,17 +11,17 @@ function init()
   end
 
   local worldSize = world.size()
-  storage.maxX = worldSize[1]
-  storage.maxY = worldSize[2]
+  self.maxX = worldSize[1]
+  self.maxY = worldSize[2]
 
-  storage.maxSize = 25
+  self.maxSize = 25
 
   message.setHandler("setDungeonId", setDungeonId)
 end
 
 function setDungeonId(_, _, dungeonId, targetingData)
   local changedAny = false
-  if #targetingData > storage.maxSize then
+  if #targetingData > self.maxSize then
     return changedAny
   end
   for _, v in ipairs(targetingData) do
@@ -50,5 +50,5 @@ end
 
 function worldBoundsCheck(pos)
   return pos[1] >= 0 and pos[2] >= 0 and
-    pos[1] < storage.maxX and pos[2] < storage.maxY
+    pos[1] < self.maxX and pos[2] < self.maxY
 end
