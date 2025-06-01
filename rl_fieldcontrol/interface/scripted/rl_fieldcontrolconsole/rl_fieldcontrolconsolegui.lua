@@ -2,7 +2,8 @@ require "/scripts/rl_fieldcontrol.lua"
 
 function init()
   self.validateDungeonId = rl_fieldcontrol.dungeonIdValidator(
-    rl_fieldcontrol.fccDungeonIdRange)
+    rl_fieldcontrol.fccDungeonIdRange
+  )
 
   self.helpTemplate = config.getParameter("helpTemplate")
   self.errorTemplate = config.getParameter("errorTemplate")
@@ -12,6 +13,7 @@ function init()
   self.unregisteredDungeonId = config.getParameter("unregisteredDungeonId")
   self.breathable = config.getParameter("breathable")
   self.gravity = config.getParameter("gravity")
+  self.hazardProtection = config.getParameter("hazardProtection")
   self.protection = config.getParameter("protection")
 
   self.bulkheadMode = config.getParameter("bulkheadMode")
@@ -30,15 +32,17 @@ function update(dt)
     self.deregisterDungeonIdMessage = rl_fieldcontrol.awaitOnMessage(
       self.deregisterDungeonIdMessage, function(r)
         widget.setText(
-          "unregisteredOverlay.dungeonId", self.registeredDungeonId)
+          "unregisteredOverlay.dungeonId", self.registeredDungeonId
+        )
         self.registeredDungeonId = nil
         self.breathable = nil
         self.gravity = nil
+        self.hazardProtection = nil
         self.protection = nil
         changed = true
       end, function(e)
         pane.playSound(self.sounds.error)
-        sb.logError("rl_fieldcontrolconsolegui: Failed to deregister.")
+        sb.logError("rl_fieldcontrolconsolegui: failed to deactivate")
       end)
   elseif self.registerDungeonIdMessage then
     self.registerDungeonIdMessage = rl_fieldcontrol.awaitOnMessage(
@@ -47,24 +51,41 @@ function update(dt)
           self.registeredDungeonId = r.dungeonId
           self.breathable = r.breathable
           self.gravity = r.gravity
+          self.hazardProtection = r.hazardProtection
           self.protection = r.protection
           changed = true
         else
           widget.setText(
-            "unregisteredOverlay.errorLabel", errorMessage(r.dungeonId))
+            "unregisteredOverlay.errorLabel", errorMessage(r.dungeonId)
+          )
           widget.setVisible("unregisteredOverlay.errorLabel", true)
           pane.playSound(self.sounds.error)
         end
       end, function(e)
         widget.setText(
-          "unregisteredOverlay.errorLabel", "Unknown error occurred.")
+          "unregisteredOverlay.errorLabel", "Unknown error occurred."
+        )
         widget.setVisible("unregisteredOverlay.errorLabel", true)
         pane.playSound(self.sounds.error)
-        sb.logError("rl_fieldcontrolconsolegui: Failed to register.")
+        sb.logError("rl_fieldcontrolconsolegui: failed to activate")
       end)
   end
   if changed then
     swapMainPane()
+  end
+  if self.toggleHazardProtectionMessage then
+    self.toggleHazardProtectionMessage = rl_fieldcontrol.awaitOnMessage(
+      self.toggleHazardProtectionMessage, function(r)
+        self.oldHazardProtection = nil
+      end, function(e)
+        self.hazardProtection = self.oldHazardProtection
+        widget.setChecked("registeredOverlay.hazardProtection",
+          self.oldHazardProtection
+        )
+        self.oldHazardProtection = nil
+        pane.playSound(self.sounds.error)
+        sb.logError("rl_fieldcontrolconsolegui: failed to change dungeon status effects")
+      end)
   end
 end
 
@@ -73,7 +94,8 @@ function setDungeonId(widgetName, widgetData)
   if self.validateDungeonId(dungeonId) then
     widget.setButtonEnabled("unregisteredOverlay.activateButton", true)
     world.sendEntityMessage(
-      pane.sourceEntity(), "setUnregisteredDungeonId", dungeonId)
+      pane.sourceEntity(), "setUnregisteredDungeonId", dungeonId
+    )
   else
     widget.setButtonEnabled("unregisteredOverlay.activateButton", false)
   end
@@ -83,7 +105,8 @@ end
 function randomizeButtonPressed(widgetName, widgetData)
   widget.setText("unregisteredOverlay.dungeonId", math.random(
     rl_fieldcontrol.fccDungeonIdRange[1],
-    rl_fieldcontrol.fccDungeonIdRange[2]))
+    rl_fieldcontrol.fccDungeonIdRange[2]
+  ))
 end
 
 function activateButtonPressed(widgetName, widgetData)
@@ -91,51 +114,84 @@ function activateButtonPressed(widgetName, widgetData)
   local dungeonId = tonumber(widget.getText("unregisteredOverlay.dungeonId"))
   if not self.validateDungeonId(dungeonId) then return end
   self.registerDungeonIdMessage = world.sendEntityMessage(
-    pane.sourceEntity(), "registerDungeonId", dungeonId)
+    pane.sourceEntity(), "registerDungeonId", dungeonId
+  )
 end
 
 function deactivateButtonPressed(widgetName, widgetData)
   if not self.registeredDungeonId then return end
   self.deregisterDungeonIdMessage = world.sendEntityMessage(
-    pane.sourceEntity(), "deregisterDungeonId", true)
+    pane.sourceEntity(), "deregisterDungeonId", true
+  )
 end
 
 function setBulkheadMode(widgetName, widgetData)
   self.bulkheadMode = widget.getChecked("bulkheadMode")
   world.sendEntityMessage(
-    pane.sourceEntity(), "setBulkheadMode", self.bulkheadMode)
+    pane.sourceEntity(), "setBulkheadMode", self.bulkheadMode
+  )
 end
 
 function setDungeonBreathable(widgetName, widgetData)
   if not self.registeredDungeonId then return end
   self.breathable = widget.getChecked("registeredOverlay.breathable")
   world.sendEntityMessage(
-    pane.sourceEntity(), "setDungeonBreathable", self.breathable)
+    pane.sourceEntity(), "setDungeonBreathable", self.breathable
+  )
 end
 
 function setDungeonGravity(widgetName, widgetData)
   if not self.registeredDungeonId then return end
   self.gravity = sliderToGravity(
-    widget.getSliderValue("registeredOverlay.gravitySlider"))
+    widget.getSliderValue("registeredOverlay.gravitySlider")
+  )
+  widget.setText("registeredOverlay.gravityLabel",
+    string.format("Gravity (%s)", self.gravity)
+  )
   world.sendEntityMessage(
-    pane.sourceEntity(), "setDungeonGravity", self.gravity)
+    pane.sourceEntity(), "setDungeonGravity", self.gravity
+  )
+end
+
+function setDungeonHazardProtection(widgetName, widgetData)
+  if not self.registeredDungeonId then return end
+  self.oldHazardProtection = self.hazardProtection
+  self.hazardProtection = widget.getChecked("registeredOverlay.hazardProtection")
+  self.toggleHazardProtectionMessage = world.sendEntityMessage(
+    pane.sourceEntity(), "setDungeonHazardProtection", self.hazardProtection
+  )
 end
 
 function setDungeonTileProtection(widgetName, widgetData)
   if not self.registeredDungeonId then return end
   self.protection = widget.getChecked("registeredOverlay.protection")
   world.sendEntityMessage(
-    pane.sourceEntity(), "setDungeonTileProtection", self.protection)
+    pane.sourceEntity(), "setDungeonTileProtection", self.protection
+  )
 end
 
 function swapMainPane()
   if self.registeredDungeonId then
     widget.setVisible("unregisteredOverlay", false)
-    widget.setText(
-      "registeredOverlay.dungeonId", self.registeredDungeonId)
-    widget.setSliderValue(
-      "registeredOverlay.gravitySlider", gravityToSlider(self.gravity))
+    widget.setText("registeredOverlay.dungeonId", self.registeredDungeonId)
+    widget.setText("registeredOverlay.gravityLabel",
+      string.format("Gravity (%s)", self.gravity)
+    )
+    widget.setSliderValue("registeredOverlay.gravitySlider",
+      gravityToSlider(self.gravity)
+    )
     widget.setChecked("registeredOverlay.breathable", self.breathable)
+    if self.hazardProtection ~= nil then
+      widget.setVisible("registeredOverlay.hazardProtectionLabel", true)
+      widget.setVisible("registeredOverlay.hazardProtection", true)
+      widget.setChecked("registeredOverlay.hazardProtection",
+        self.hazardProtection
+      )
+    else
+      widget.setVisible("registeredOverlay.hazardProtectionLabel", false)
+      widget.setVisible("registeredOverlay.hazardProtection", false)
+      widget.setChecked("registeredOverlay.hazardProtection", false)
+    end
     widget.setChecked("registeredOverlay.protection", self.protection)
     widget.setVisible("registeredOverlay", true)
   else
@@ -146,7 +202,8 @@ function swapMainPane()
       widget.setText("unregisteredOverlay.dungeonId", dungeonId)
     end
     widget.setButtonEnabled(
-      "activateButton", self.validateDungeonId(dungeonId))
+      "activateButton", self.validateDungeonId(dungeonId)
+    )
     widget.setText("unregisteredOverlay.helpLabel", helpMessage())
     widget.setVisible("unregisteredOverlay", true)
   end

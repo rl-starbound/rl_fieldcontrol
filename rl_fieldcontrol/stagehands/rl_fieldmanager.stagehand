@@ -1,6 +1,8 @@
 {
   "type" : "rl_fieldmanager",
 
+  "broadcastArea" : [0, 0, 1, 1],
+
   "scripts" : [
     "/stagehands/rl_fieldmanager.lua"
   ],

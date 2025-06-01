@@ -1,0 +1,26 @@
+{
+  "margin" : 0,
+  "name" : "rl_fieldcontrol/objects",
+  "properties" : {
+  },
+  "spacing" : 0,
+  "tilecount" : 1,
+  "tileheight" : 8,
+  "tileproperties" : {
+    "0" : {
+      "//description" : "A console for controlling environmental fields.",
+      "//name" : "rl_fieldcontrolconsole",
+      "//shortdescription" : "Field Control Console",
+      "imagePositionX" : "-8",
+      "imagePositionY" : "-8",
+      "object" : "rl_fieldcontrolconsole",
+      "tilesetDirection" : "right"
+    }
+  },
+  "tiles" : {
+    "0" : {
+      "image" : "../../_tiled/rl_fieldcontrol/objects/rl_fieldcontrolconsole.png"
+    }
+  },
+  "tilewidth" : 8
+}

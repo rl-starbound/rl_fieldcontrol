@@ -28,7 +28,7 @@
           "image" : "rl_fieldcontrolconsolelit.png:default"
         }
       ],
-      "imagePosition" : [-16, -8],
+      "imagePosition" : [-8, -8],
 
       "spaceScan" : 0.1,
       "anchors" : [ "background" ],
@@ -39,20 +39,30 @@
   "health" : 10,
 
   "scripts" : [ "rl_fieldcontrolconsole.lua" ],
-  "scriptDelta" : 60,
+  "scriptDelta" : 30,
 
-  "blockOffsets" : [-2, -1, 1, 2],
   "lightColorOn" : [46, 60, 77],
-  "lightPosition" : [-1, 0],
+  "lightPosition" : [0, 0],
 
   "animation" : "rl_fieldcontrolconsole.animation",
   "animationParts" : {
     "bg" : "rl_fieldcontrolconsole.png",
     "fg" : "rl_fieldcontrolconsolelit.png"
   },
-  "animationCustom" : {},
-  "animationPosition" : [-16, -8],
+  "animationPosition" : [-8, -8],
 
   "interactAction" : "ScriptPane",
-  "interactData" : "/interface/scripted/rl_fieldcontrolconsole/rl_fieldcontrolconsolegui.config"
+  "interactData" : "/interface/scripted/rl_fieldcontrolconsole/rl_fieldcontrolconsolegui.config",
+
+  "outputNodes" : [ [1, 1], [1, 0] ],
+
+  // The `hazardProtection` JSON object's keys must be names of status
+  // effects that are environment hazards. Values must be JSON objects
+  // with a `stat` string property that is the blocking stat of the
+  // status effect and an `amount` numeric property that is positive.
+  "hazardProtection" : {
+    "biomecold" : { "stat" : "biomecoldImmunity", "amount" : 1.0 },
+    "biomeheat" : { "stat" : "biomeheatImmunity", "amount" : 1.0 },
+    "biomeradiation" : { "stat" : "biomeradiationImmunity", "amount" : 1.0 }
+  }
 }

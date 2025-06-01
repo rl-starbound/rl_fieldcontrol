@@ -1,6 +1,8 @@
 require "/scripts/rl_fieldcontrol.lua"
 require "/scripts/vec2.lua"
 
+local statusEnum = {"available", "done"}
+
 function init()
   self.primaryCooldownTimer = 0
   self.altCooldownTimer = 0
@@ -53,7 +55,7 @@ function update(dt, fireMode, shifting)
   elseif self.worldMessageSetDungeonId then
     if self.worldMessageSetDungeonId:finished() then
       if not self.worldMessageSetDungeonId:succeeded() then
-        sb.logError("rl_fieldtuner: Received world message failure.")
+        sb.logError("rl_fieldtuner: received setDungeonId message failure")
       end
       animator.playSound("fire")
       self.worldMessageSetDungeonId = nil
@@ -92,9 +94,7 @@ function loadFieldManager()
     if findManager:succeeded() then
       return rl_fieldcontrol.stagehandUid
     else
-      world.spawnStagehand({0, 0}, "rl_fieldmanager", {
-        tryUniqueId = rl_fieldcontrol.stagehandUid
-      })
+      world.spawnStagehand({5, 5}, "rl_fieldmanager")
     end
     coroutine.yield()
   end
@@ -111,9 +111,9 @@ function getDungeonId()
     -- the control of a Field Control Console, Ship Shield Switch, or
     -- Station Shield Switch.
     if not rl_fieldcontrol.isFccShielded(dungeonId, coroutine.yield) then
-      if not rl_fieldcontrol.isShipShielded(dungeonId, coroutine.yield) then
+      if not rl_fieldcontrol.isShipShielded(dungeonId) then
         if not rl_fieldcontrol.isStationShielded(dungeonId) then
-          --sb.logInfo("rl_fieldtuner: dungeonId " .. dungeonId .. " is reserved. Not tuning.")
+          --sb.logInfo("rl_fieldtuner: dungeonId %s is reserved; not tuning", dungeonId)
           resetTuner()
           animator.playSound("scanFail")
           return false
@@ -121,9 +121,8 @@ function getDungeonId()
       end
     end
   end
-  if rl_fieldcontrol.isInList(
-      dungeonId, rl_fieldcontrol.forbiddenDungeonIds) then
-    --sb.logInfo("rl_fieldtuner: Invalid dungeonId: " .. dungeonId)
+  if contains(rl_fieldcontrol.forbiddenDungeonIds, dungeonId) then
+    --sb.logInfo("rl_fieldtuner: dungeonId %s is reserved; not tuning", dungeonId)
     resetTuner()
     animator.playSound("scanFail")
     return false
@@ -137,7 +136,7 @@ function getDungeonId()
   })
   animator.setAnimationState("tunerState", "valid")
   animator.playSound("scanSuccess")
-  --sb.logInfo("rl_fieldtuner: Tuned to dungeonId " .. self.dungeonId .. ".")
+  --sb.logInfo("rl_fieldtuner: tuned to dungeonId %s", self.dungeonId)
   return true
 end
 
@@ -161,18 +160,19 @@ function setDungeonId()
   end
   if not self.fieldManager then
     -- Should not be possible to get here.
-    sb.logError("rl_fieldtuner: field manager not set; no action taken.")
+    sb.logError("rl_fieldtuner: field manager not set; no action taken")
     return
   end
   if self.worldMessageSetDungeonId then
     -- Should not be possible to get here.
-    sb.logError("rl_fieldtuner: a previous message is in progress; no action taken.")
+    sb.logError("rl_fieldtuner: a previous message is in progress; no action taken")
     return
   end
 
-  --sb.logInfo("rl_fieldtuner: Sending tiles " .. targetingDataToString() .. " to field manager for assignment to " .. self.dungeonId .. ".")
+  --sb.logInfo("rl_fieldtuner: sending tiles %s to field manager for assignment to dungeonId %d", targetingDataToString(), self.dungeonId)
   return world.sendEntityMessage(
-    self.fieldManager, "setDungeonId", self.dungeonId, self.targetingData)
+    self.fieldManager, "setDungeonId", self.dungeonId, self.targetingData
+  )
 end
 
 function fireFail()
@@ -191,25 +191,26 @@ function getTargetingData(shifting, pos)
   local ll = rect.ll(targetRect)
   local ur = rect.ur(targetRect)
   if ll[2] >= maxY or ur[2] < 1 then
-    sb.logInfo("rl_fieldtuner: rectangle " .. rl_fieldcontrol.rectToString(targetRect) .. " is out of bounds.")
+    sb.logInfo("rl_fieldtuner: rectangle %s is out of bounds",
+      sb.printJson(targetRect)
+    )
     return nil
   end
   if ll[2] < 0 then
     targetRect[2] = 0
-    --sb.logInfo("rl_fieldtuner: rectangle " .. rl_fieldcontrol.rectToString(targetRect) .. " trimmed.")
+    --sb.logInfo("rl_fieldtuner: rectangle %s trimmed", sb.printJson(targetRect))
   end
   if ur[2] > maxY then
     targetRect[4] = maxY
-    --sb.logInfo("rl_fieldtuner: rectangle " .. rl_fieldcontrol.rectToString(targetRect) .. " trimmed.")
+    --sb.logInfo("rl_fieldtuner: rectangle %s trimmed", sb.printJson(targetRect))
   end
 
   local targetingData = {}
-  for _, pos in ipairs(rl_fieldcontrol.rectToList(targetRect)) do
+  for _, pos in ipairs(rl_fieldcontrol.rectToSpaces(targetRect)) do
     local posDungeonId = world.dungeonId(pos)
     if world.isTileProtected(pos) and posDungeonId ~= self.dungeonId then
       table.insert(targetingData, {pos, 3})
-    elseif rl_fieldcontrol.isInList(
-        posDungeonId, rl_fieldcontrol.forbiddenDungeonIds) then
+    elseif contains(rl_fieldcontrol.forbiddenDungeonIds, posDungeonId) then
       table.insert(targetingData, {pos, 3})
     elseif posDungeonId == self.dungeonId then
       table.insert(targetingData, {pos, 2})
@@ -220,19 +221,13 @@ function getTargetingData(shifting, pos)
   return targetingData
 end
 
-function targetingDataToString()
-  if not self.targetingData then return "[]" end
-  local out = "["
-  for i, v in ipairs(self.targetingData) do
-    local pos = rl_fieldcontrol.vecToString(v[1])
-    local status = v[2] == 1 and "available" or
-      v[2] == 2 and "done" or "unavailable"
-    local notLast = i ~= #self.targetingData and ", " or ""
-    out = string.format(
-      "%s{\"pos\": %s, \"status\": %s}%s", out, pos, status, notLast)
-  end
-  return string.format("%s]", out)
-end
+--function targetingDataToString()
+--  local out = {}
+--  for _,v in ipairs(self.targetingData or {}) do
+--    table.insert(out, {pos = v[1], status = statusEnum[v[2]] or "unavailable"})
+--  end
+--  return sb.printJson(out)
+--end
 
 function updateAim(shifting)
   self.aimPosition = activeItem.ownerAimPosition()

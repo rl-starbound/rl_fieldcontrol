@@ -2,6 +2,7 @@
   "input" : [
     { "item" : "durasteelbar", "count" : 1 },
     { "item" : "siliconboard", "count" : 1 },
+    { "item" : "stickofram", "count" : 1 },
     { "item" : "wire", "count" : 4 },
     { "item" : "smallbattery", "count" : 1 }
   ],

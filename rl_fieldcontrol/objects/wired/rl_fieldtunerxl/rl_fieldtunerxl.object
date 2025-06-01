@@ -54,12 +54,11 @@
     }
   ],
 
-  "health" : 10,
+  "health" : 5,
 
   "scripts" : [ "rl_fieldtunerxl.lua" ],
   "scriptDelta" : 10,
 
-  "blockOffsets" : [-2, 0, 2, 5],
   "lightColorOn" : [31, 40, 51],
   "lightPosition" : [-1, 0],
 

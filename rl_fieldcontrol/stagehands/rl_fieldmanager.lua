@@ -1,11 +1,13 @@
 require "/scripts/rl_fieldcontrol.lua"
+require "/scripts/util.lua"
 
 function init()
-  local tryUniqueId = config.getParameter("tryUniqueId")
+  local tryUniqueId = rl_fieldcontrol.stagehandUid
   if entity.uniqueId() ~= tryUniqueId then
     if world.findUniqueEntity(tryUniqueId):result() == nil then
       stagehand.setUniqueId(tryUniqueId)
     else
+      script.setUpdateDelta(0)
       stagehand.die()
     end
   end
@@ -34,12 +36,11 @@ function trySetDungeonId(dungeonId, pos)
   if not worldBoundsCheck(pos) then return false end
   local posDungeonId = world.dungeonId(pos)
   if world.isTileProtected(pos) and posDungeonId ~= dungeonId then
-    --sb.logInfo("rl_fieldmanager: pos " .. rl_fieldcontrol.vecToString(pos) .. " is tile protected; not altering dungeonId.")
+    --sb.logInfo("rl_fieldmanager: position %s is tile protected; not altering dungeonId", sb.printJson(pos))
     return false
   end
-  if rl_fieldcontrol.isInList(
-      posDungeonId, rl_fieldcontrol.forbiddenDungeonIds) then
-    --sb.logInfo("rl_fieldmanager: pos " .. rl_fieldcontrol.vecToString(pos) .. " is at forbidden dungeonId " .. posDungeonId .. "; not altering dungeonId.")
+  if contains(rl_fieldcontrol.forbiddenDungeonIds, posDungeonId) then
+    --sb.logInfo("rl_fieldmanager: position %s has forbidden dungeonId %d; not altering dungeonId", sb.printJson(pos), posDungeonId)
     return false
   end
   if posDungeonId ~= dungeonId then

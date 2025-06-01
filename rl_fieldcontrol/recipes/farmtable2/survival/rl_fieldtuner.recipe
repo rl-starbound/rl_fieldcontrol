@@ -1,9 +1,10 @@
 {
   "input" : [
-    { "item" : "solariumstar", "count" : 15 },
-    { "item" : "diamond", "count" : 1 },
+    { "item" : "solariumstar", "count" : 10 },
+    { "item" : "diamond", "count" : 3 },
     { "item" : "siliconboard", "count" : 1 },
-    { "item" : "wire", "count" : 6 },
+    { "item" : "stickofram", "count" : 2 },
+    { "item" : "wire", "count" : 10 },
     { "item" : "smallbattery", "count" : 4 }
   ],
   "output" : { "item" : "rl_fieldtuner", "count" : 1 },

@@ -1,16 +1,13 @@
-require "/scripts/vec2.lua"
-
 function init(args)
   if object.inputNodeCount() > 0 then
     onInputNodeChange({node=0, level=object.getInputNodeLevel(0)})
   end
 
-  message.setHandler("getFieldMarkerBounds", getFieldMarkerBounds)
+  message.setHandler("getFieldMarkerPosition", getFieldMarkerPosition)
 end
 
-function getFieldMarkerBounds(_, _)
-  local pos = vec2.floor(entity.position())
-  return {pos[1], pos[2], pos[1] + 1, pos[2] + 1}
+function getFieldMarkerPosition(_, _)
+  return entity.position()
 end
 
 function onInputNodeChange(args)

@@ -41,7 +41,7 @@ function update(dt)
         widget.setButtonEnabled("inactiveOverlay.activateButton",
           self.validateDungeonId(self.dungeonId))
         pane.playSound(self.sounds.error)
-        sb.logError("rl_fieldcontrolconsolegui: Failed to activate.")
+        sb.logError("rl_fieldcontrolconsolegui: failed to activate")
       end)
   end
 end
