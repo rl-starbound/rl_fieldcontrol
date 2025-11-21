@@ -2,6 +2,9 @@
   "author" : "rl.starbound",
   "description" : "Fields determine many of the physical forces of the Starbound universe, such as atmosphere, gravity, and shielding. Once thought lost with the destruction of Earth, field control technology has been rediscovered. Field Tuners can be used to tune local regions of a world to a desired field frequency. Field Control Consoles allow users control over the physical forces within regions tuned to a specific field frequency.\n\nFind the source code at:\nhttps://github.com/rl-starbound/rl_fieldcontrol",
   "friendlyName" : "Field Control Technology",
+  "link" : "steam://url/CommunityFilePage/3609384859",
   "name" : "rl_fieldcontrol",
-  "version" : "2.0.0"
+  "steamContentId" : "3609384859",
+  "tags" : "In-Game Tools|Mechanics",
+  "version" : "2.0.1"
 }
