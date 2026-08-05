@@ -45,8 +45,8 @@ The field tuner XL and field tuning markers are crafted at the wiring station, i
 If either [Belter Dungeons](https://community.playstarbound.com/resources/belter-dungeons.6357/) or [No Belter Dungeons](https://community.playstarbound.com/resources/no-belter-dungeons.6358/) v2.2.0 or newer is installed, the field control console will gain the ability to protect players from environmental hazards. If both [Mech Compatibility Core](https://steamcommunity.com/sharedfiles/filedetails/?id=3371002682) and [Mech Compatibility Loader](https://steamcommunity.com/sharedfiles/filedetails/?id=3371011064) are installed, this protection extends to mechs.
 
 Field control consoles can only protect against known environmental hazards. Hazards added by mods will require extensions. Currently available extensions are:
-* [Arcana](TBD)
-* [Frackin' Universe](TBD)
+* [Arcana](https://community.playstarbound.com/resources/field-control-technology-arcana-compatibility.6405/)
+* [Frackin' Universe](https://community.playstarbound.com/resources/field-control-technology-frackin-universe-compatibility.6406/)
 
 ## Compatibility
 

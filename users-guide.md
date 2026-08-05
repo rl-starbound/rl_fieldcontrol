@@ -44,8 +44,8 @@ If placed on a world with environmental hazards, the field control console will 
 *To enable this feature, either [Belter Dungeons](https://community.playstarbound.com/resources/belter-dungeons.6357/) or [No Belter Dungeons](https://community.playstarbound.com/resources/no-belter-dungeons.6358/) v2.2.0 or newer must be installed. To enable mech protection, both [Mech Compatibility Core](https://steamcommunity.com/sharedfiles/filedetails/?id=3371002682) and [Mech Compatibility Loader](https://steamcommunity.com/sharedfiles/filedetails/?id=3371011064) must also be installed.*
 
 Field control consoles can only protect against known environmental hazards. Hazards added by mods will require extensions. Currently available extensions are:
-* [Arcana](TBD)
-* [Frackin' Universe](TBD)
+* [Arcana](https://community.playstarbound.com/resources/field-control-technology-arcana-compatibility.6405/)
+* [Frackin' Universe](https://community.playstarbound.com/resources/field-control-technology-frackin-universe-compatibility.6406/)
 
 Deactivation of a field control console will reset the gravity, atmosphere, shielding, and environmental protection for its aligned field to the original values that were present behind the field control console at the moment it was activated. Deactivation is automatic if the field control console is broken.
 
