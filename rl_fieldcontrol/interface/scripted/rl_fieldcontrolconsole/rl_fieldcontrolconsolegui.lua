@@ -16,14 +16,19 @@ function init()
   self.hazardProtection = config.getParameter("hazardProtection")
   self.protection = config.getParameter("protection")
 
-  self.bulkheadMode = config.getParameter("bulkheadMode")
-  widget.setChecked("bulkheadMode", self.bulkheadMode)
+  self.visibilityModeButtons = config.getParameter("visibilityModeButtons")
+  self.visibilityMode = tonumber(config.getParameter("visibilityMode"))
+  if self.visibilityMode ~= nil then
+    self.visibilityMode = math.floor(self.visibilityMode)
+  end
+  getActiveVisibilityModeButton()
+  updateVisibilityModeButtons()
 
   swapMainPane()
 end
 
 function dismissed()
-  for _, sound in pairs(self.sounds) do pane.stopAllSounds(sound) end
+  for _,sound in pairs(self.sounds) do pane.stopAllSounds(sound) end
 end
 
 function update(dt)
@@ -125,13 +130,6 @@ function deactivateButtonPressed(widgetName, widgetData)
   )
 end
 
-function setBulkheadMode(widgetName, widgetData)
-  self.bulkheadMode = widget.getChecked("bulkheadMode")
-  world.sendEntityMessage(
-    pane.sourceEntity(), "setBulkheadMode", self.bulkheadMode
-  )
-end
-
 function setDungeonBreathable(widgetName, widgetData)
   if not self.registeredDungeonId then return end
   self.breathable = widget.getChecked("registeredOverlay.breathable")
@@ -167,6 +165,18 @@ function setDungeonTileProtection(widgetName, widgetData)
   self.protection = widget.getChecked("registeredOverlay.protection")
   world.sendEntityMessage(
     pane.sourceEntity(), "setDungeonTileProtection", self.protection
+  )
+end
+
+function setVisibilityMode(widgetName, widgetData)
+  self.visibilityMode = widget.getChecked(widgetName) and widgetData or nil
+  if self.visibilityMode ~= nil then
+    self.visibilityMode = math.floor(self.visibilityMode)
+  end
+  getActiveVisibilityModeButton()
+  updateVisibilityModeButtons()
+  world.sendEntityMessage(
+    pane.sourceEntity(), "setVisibilityMode", self.visibilityMode
   )
 end
 
@@ -215,6 +225,30 @@ end
 
 function sliderToGravity(slider)
   return (slider - 2) * 5
+end
+
+function getActiveVisibilityModeButton()
+  local modeStr = self.visibilityModeButtons[self.visibilityMode]
+  if modeStr == nil then
+    self.visibilityMode = nil
+    self.activeVisibilityModeButton = nil
+  else
+    self.activeVisibilityModeButton = modeStr
+  end
+end
+
+function updateVisibilityModeButtons()
+  for _,v in ipairs(self.visibilityModeButtons) do
+    if self.activeVisibilityModeButton == v then
+      if not widget.getChecked(v) then
+        widget.setChecked(v, true)
+      end
+    else
+      if widget.getChecked(v) then
+        widget.setChecked(v, false)
+      end
+    end
+  end
 end
 
 function helpMessage()

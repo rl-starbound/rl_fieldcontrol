@@ -8,7 +8,7 @@ function update()
   if not targetingData then return end
 
   local scannerConfig = animationConfig.animationParameter("scannerConfig")
-  for _, v in ipairs(targetingData) do
+  for _,v in ipairs(targetingData) do
     localAnimator.addDrawable({
       image = scannerConfig.image:gsub("<variant>", tostring(v[2])),
       fullbright = true,

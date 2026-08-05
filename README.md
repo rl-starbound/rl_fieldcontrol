@@ -1,11 +1,10 @@
 # Starbound mod: Field Control Technology
 
-This mod allows players to control the gravity, atmosphere, and shielding within arbitrarily-shaped regions in worlds. Some applications include: protecting keypad-locked rooms in your base, protecting bases from meteor strikes, building bases in asteroid belts so that they have air and gravity, and so forth.
+The **Field Control Technology** mod allows players to control the gravity, atmosphere, and shielding within arbitrarily-shaped regions in worlds. Some applications include: protecting locked rooms in your base, protecting bases from meteor strikes, building bases in asteroid belts so that they have air and gravity, and so forth.
 
-Manipulating the physical forces of the universe can be complicated, so please read the [user's guide](users-guide.md) for detailed instruction on using these tools.
+Manipulating the physical forces of the universe can be complicated, so please read the [user's guide](users-guide.md) for instructions on using these tools.
 
 This mod provides a number of items for controlling the forces of the Starbound universe:
-
 * Ship Shield Switch and Station Shield Switch
 * Field Control Console
 * Portable Field Tuner
@@ -25,7 +24,7 @@ The station shield switch can be crafted at the wiring station, in the mechanics
 
 ### Field Control Console
 
-Each **Field Control Console** (`rl_fieldcontrolconsole`) manipulates the physical forces of one specific field frequency within a world. Gravity, atmosphere, and shielding can be controlled at this console.
+Each **Field Control Console** (`rl_fieldcontrolconsole`) manipulates the physical forces of one specific field frequency within a world. Gravity, atmosphere, shielding, and (optionally) environmental protection can be controlled at this console.
 
 The field control console is crafted at the wiring station, in the mechanics tab.
 
@@ -43,32 +42,34 @@ The field tuner XL and field tuning markers are crafted at the wiring station, i
 
 ## Optional Functionality
 
-If [Belter Dungeons](https://community.playstarbound.com/resources/belter-dungeons.6357/) (or [No Belter Dungeons](https://community.playstarbound.com/resources/no-belter-dungeons.6358/)) v2.0.0 or later is installed, the field control console will gain the ability to protect players from environmental hazards, *i.e.*, deadly [radiation](https://starbounder.org/Deadly_Radiation), [cold](https://starbounder.org/Deadly_Chill), or [heat](https://starbounder.org/Deadly_Heat).
+If either [Belter Dungeons](https://community.playstarbound.com/resources/belter-dungeons.6357/) or [No Belter Dungeons](https://community.playstarbound.com/resources/no-belter-dungeons.6358/) v2.2.0 or newer is installed, the field control console will gain the ability to protect players from environmental hazards. If both [Mech Compatibility Core](https://steamcommunity.com/sharedfiles/filedetails/?id=3371002682) and [Mech Compatibility Loader](https://steamcommunity.com/sharedfiles/filedetails/?id=3371011064) are installed, this protection extends to mechs.
 
-## Compatibility Notes
+Field control consoles can only protect against known environmental hazards. Hazards added by mods will require extensions. Currently available extensions are:
+* [Arcana](TBD)
+* [Frackin' Universe](TBD)
 
-Care has been taken to use unique namespaces and make no changes to existing assets, so this mod should be widely compatible. The only point of interaction with the vanilla code is patching the recipes into the player and species config files.
+## Compatibility
 
-## Uninstall Notes
+This mod uses Starbound modding best practices, so it should be compatible with most mods. It is known to be incompatible with [Password Protection Module for Field Control Technology](https://steamcommunity.com/sharedfiles/filedetails/?id=2885032247); a replacement for that extension is coming soon.
 
-Due to how the Starbound core engine handles removed mod assets, some issues may crop up. None of these issues are major, but you should be aware of them before removing this mod.
+## Uninstallation
 
-* Any fields that you had tuned or manipulated in any world will remain as you last set them before removal of this mod, including shielding. You can use `/admin` commands to deactivate shielding (also known as tile protection). **You are strongly advised to disable any ship or station shield switches and deregister any field control consoles before removing this mod**.
+Due to how the Starbound core engine handles removed mod assets, some issues may occur. None of these issues are major, but you should be aware of them before removing this mod.
+* **You are strongly advised to disable any ship or station shield switches and deregister any field control consoles before removing this mod**. Any fields that you had tuned or manipulated in any world will remain as you last set them before removal of this mod, including shielding and environmental protection.
 * The first time you load a character after removing this mod, the game may crash. However, you should be able to load the character again, and play should resume with the character returned to their ship.
 * The first time you beam to any world that contained a field control console, field tuner XL, field tuning marker, or ship or station shield switch, those objects will cease to exist and leave error messages in the game log. If any of those objects were stored in a container, they will turn into perfectly generic items, as will any portable field tuners.
-
-## Collaboration
-
-If you have any questions, bug reports, or ideas for improvement, please contact me via [Chucklefish Forums](https://community.playstarbound.com/members/rl-starbound.885402/), [Github](https://github.com/rl-starbound), [Reddit](https://www.reddit.com/user/rl-starbound/), or Discord (`rl.steam`). Also please let me know if you plan to republish this mod elsewhere, so we can maintain open lines of communication to ensure timely updates.
 
 ## Credits
 
 Thanks to Pilch's "Field Generators" for inspiring this mod.
 
+## Collaboration
+
+If you have any questions, bug reports, or ideas for improvement, please contact me via [Chucklefish Forums](https://community.playstarbound.com/members/rl-starbound.885402/), [Github](https://github.com/rl-starbound), [Reddit](https://www.reddit.com/user/rl-starbound/), or the Starbound Discord (`rl.steam`). Steam users may want to subscribe to my [workshop profile](https://steamcommunity.com/profiles/76561198808510456/myworkshopfiles/) for updates on this and my other mods. Also please let me know if you plan to republish this mod elsewhere, so we can maintain open lines of communication to ensure timely updates.
+
 ## License
 
 Permission to include this mod or parts thereof in derived works, to distribute copies of this mod verbatim, or to distribute modified copies of this mod, is granted unconditionally to Chucklefish LTD. Such permissions are also granted to other parties automatically, provided the following conditions are met:
-
-* Credit is given to the author(s) specified in this mod's \_metadata file;
-* A link is provided to the [Github repository](https://github.com/rl-starbound/rl_fieldcontrol) or [mod page](https://community.playstarbound.com/resources/field-control-technology.6028/) in the accompanying files or documentation of any derived work;
-* The names "Field Control Technology" or "rl_fieldcontrol" are not used as the name of any derived work without explicit consent of the author(s); however, those names may be used in verbatim distribution of this mod. For the purposes of this clause, minimal changes to metadata files to allow distribution on Steam shall be considered a verbatim distribution so long as authorship attribution remains.
+* Credit is given to the author(s) specified in this mod's `_metadata` file;
+* A link is provided to the [source repository](https://github.com/rl-starbound/rl_fieldcontrol) in the accompanying files or documentation of any derived work;
+* The exact name "Field Control Technology" is not used as the metadata `friendlyName` of any derived work without explicit consent of the author(s); however, the names may be used in verbatim distribution of this mod. For the purposes of this clause, minimal changes to metadata files to allow distribution on Steam shall be considered a verbatim distribution so long as authorship attribution remains. In other words, if you distribute an altered version of this mod, you must make that clear in the name.

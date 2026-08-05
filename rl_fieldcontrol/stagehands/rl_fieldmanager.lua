@@ -26,7 +26,7 @@ function setDungeonId(_, _, dungeonId, targetingData)
   if #targetingData > self.maxSize then
     return changedAny
   end
-  for _, v in ipairs(targetingData) do
+  for _,v in ipairs(targetingData) do
     changedAny = trySetDungeonId(dungeonId, v[1]) or changedAny
   end
   return changedAny

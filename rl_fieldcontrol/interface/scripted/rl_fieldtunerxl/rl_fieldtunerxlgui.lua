@@ -17,7 +17,7 @@ function init()
 end
 
 function dismissed()
-  for _, sound in pairs(self.sounds) do pane.stopAllSounds(sound) end
+  for _,sound in pairs(self.sounds) do pane.stopAllSounds(sound) end
 end
 
 function update(dt)

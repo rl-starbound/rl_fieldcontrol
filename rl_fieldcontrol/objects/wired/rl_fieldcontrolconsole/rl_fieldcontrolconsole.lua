@@ -20,7 +20,16 @@ function init()
   )
 
   if storage.bulkheadMode then
+    -- Migrate to v2 visibility format.
+    storage.visibilityMode = rl_fieldcontrol.fccVisibilityValue.bulkhead
+    storage.bulkheadMode = nil
+  end
+
+  if storage.visibilityMode == rl_fieldcontrol.fccVisibilityValue.bulkhead then
     animator.setAnimationState("consoleState", "bulkhead")
+    object.setLightColor({0, 0, 0, 0})
+  elseif storage.visibilityMode == rl_fieldcontrol.fccVisibilityValue.hidden then
+    animator.setAnimationState("consoleState", "hidden")
     object.setLightColor({0, 0, 0, 0})
   end
 
@@ -51,7 +60,7 @@ function init()
 
   message.setHandler("deregisterDungeonId", deregisterDungeonId)
   message.setHandler("registerDungeonId", registerDungeonId)
-  message.setHandler("setBulkheadMode", setBulkheadMode)
+  message.setHandler("setVisibilityMode", setVisibilityMode)
   message.setHandler("setDungeonBreathable", setDungeonBreathable)
   message.setHandler("setDungeonGravity", setDungeonGravity)
   message.setHandler("setDungeonHazardProtection", setDungeonHazardProtection)
@@ -78,7 +87,7 @@ function onInteraction()
   end
 
   local interactData = root.assetJson(config.getParameter("interactData"))
-  interactData.bulkheadMode = storage.bulkheadMode
+  interactData.visibilityMode = storage.visibilityMode
   interactData.registeredDungeonId = storage.dungeonId
   interactData.unregisteredDungeonId = storage.unregisteredDungeonId
   if storage.dungeonId then
@@ -99,11 +108,19 @@ function update(dt)
     end
   end
 
-  -- Admins can raise or lower shields independent of this console, so
-  -- ensure that object state is synced with world state.
+  -- Admins can change world properties independently of this console,
+  -- so ensure that object state is synced with world state.
   if storage.dungeonId then
     self.fieldSyncTimer = self.fieldSyncTimer - dt
     if self.fieldSyncTimer <= 0 then
+      if storage.dungeonId ~= world.dungeonId(self.position) then
+        -- Aggressively reset the dungeonId of tiles underlying an activated
+        -- field control console.
+        rl_fieldcontrol.setUnderlyingDungeonId(
+          rl_fieldcontrol.getUnderlyingDungeonIds(self.spaces), storage.dungeonId
+        )
+      end
+
       local breathable = world.breathable(self.position)
       local breathableOutputLevel = object.getOutputNodeLevel(
         self.breathableOutputNode
@@ -206,12 +223,21 @@ function registerDungeonId(_, _, dungeonId)
   }
 end
 
-function setBulkheadMode(_, _, bulkheadMode)
-  if bulkheadMode == nil then bulkheadMode = false end
-  if not bulkheadMode and storage.bulkheadMode then
-    storage.bulkheadMode = bulkheadMode
-    -- We are leaving bulkhead mode. Probe to find the current state of
-    -- the object.
+function setVisibilityMode(_, _, mode)
+  mode = tonumber(mode)
+  if mode ~= nil then mode = math.floor(mode) end
+  -- Get the numeric visibility mode. Any value other than "bulkhead" or
+  -- "hidden" will result in `nil` being used.
+  local modeStr = rl_fieldcontrol.fccVisibility[mode]
+  if mode ~= nil and modeStr == nil then
+    sb.logError("rl_fieldcontrolconsole: setVisibilityMode: ignoring invalid mode: %s", mode)
+    mode = nil
+  end
+
+  if mode == nil and storage.visibilityMode ~= nil then
+    -- We are leaving a special visibility mode. Probe to find the
+    -- current state of the object.
+    storage.visibilityMode = mode
     local currentProtection = world.isTileProtected(self.position)
     if storage.dungeonId then
       if currentProtection then
@@ -222,9 +248,9 @@ function setBulkheadMode(_, _, bulkheadMode)
     else
       setConsoleAnimation("unregistered")
     end
-  elseif bulkheadMode and not storage.bulkheadMode then
-    storage.bulkheadMode = bulkheadMode
-    setConsoleAnimation("bulkhead")
+  elseif mode ~= nil then
+    storage.visibilityMode = mode
+    setConsoleAnimation(modeStr)
   end
 end
 
@@ -372,7 +398,16 @@ function applyInitialConfiguration()
     end
   end
   if self.initialConfig.bulkheadMode ~= nil then
-    setBulkheadMode(_, _, not not self.initialConfig.bulkheadMode)
+    sb.logWarn("rl_fieldcontrolconsole: initialConfiguration.bulkheadMode is deprecated; use visibilityMode instead")
+    setVisibilityMode(_, _, rl_fieldcontrol.fccVisibilityValue.bulkhead)
+  end
+  if self.initialConfig.visibilityMode ~= nil then
+    local mode = rl_fieldcontrol.fccVisibilityValue[self.initialConfig.visibilityMode]
+    if mode == nil then
+      sb.logError("rl_fieldcontrolconsole: ignoring initialConfiguration.visibilityMode: invalid mode: %s", self.initialConfig.visibilityMode)
+    else
+      setVisibilityMode(_, _, mode)
+    end
   end
 end
 
@@ -430,15 +465,16 @@ function getDynamicStatusEffectsManager()
   return manager
 end
 
--- With rl_dynamicstatuseffects, environment hazards are no longer
--- static. This function checks whether the current hazard protection
--- covers the current set of coverable environment hazards. A return
--- value of `nil` means that rl_dynamicstatuseffects is not in use, the
--- field control console is not activated, no coverable environment
--- hazards exist, or an error occurred. A return value of `false` means
--- that at least one coverable environment hazard is not covered by the
--- current hazard protection, and a return value of `true` means that
--- all coverable environmental hazards are covered.
+-- With dynamic status effects (as defined in Belter Dungeons),
+-- environment hazards are no longer static. This function checks
+-- whether the current hazard protection covers the current set of
+-- coverable environment hazards. A return value of `nil` means that
+-- dynamic status effects are not in use, the field control console is
+-- not activated, no coverable environment hazards exist, or an error
+-- occurred. A return value of `false` means that at least one coverable
+-- environment hazard is not covered by the current hazard protection,
+-- and a return value of `true` means that all coverable environmental
+-- hazards are covered.
 function getHazardProtectionStatus()
   local manager = getDynamicStatusEffectsManager()
   if not manager then return end
@@ -457,8 +493,11 @@ function getHazardProtectionStatus()
 end
 
 function setConsoleAnimation(state)
-  if storage.bulkheadMode then
+  if storage.visibilityMode == rl_fieldcontrol.fccVisibilityValue.bulkhead then
     animator.setAnimationState("consoleState", "bulkhead")
+    object.setLightColor({0, 0, 0, 0})
+  elseif storage.visibilityMode == rl_fieldcontrol.fccVisibilityValue.hidden then
+    animator.setAnimationState("consoleState", "hidden")
     object.setLightColor({0, 0, 0, 0})
   else
     animator.setAnimationState("consoleState", state)

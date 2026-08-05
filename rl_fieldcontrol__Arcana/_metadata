@@ -1,0 +1,13 @@
+{
+  "author" : "rl.starbound",
+  "description" : "This extension provides integration between Field Control Technology and Arcana. Belter Dungeons is needed for field control consoles to provide environmental hazard protection.\n\nFind the source code at:\nhttps://github.com/rl-starbound/rl_fieldcontrol",
+  "friendlyName" : "Field Control Technology - Arcana Compatibility",
+  "includes" : ["rl_belterdungeons"],
+  "link" : "steam://url/CommunityFilePage/3776970209",
+  "name" : "rl_fieldcontrol__Arcana",
+  "priority" : 9000,
+  "requires" : ["rl_fieldcontrol", "Arcana"],
+  "steamContentId" : "3776970209",
+  "tags" : "Mechanics",
+  "version" : "2.2.0"
+}

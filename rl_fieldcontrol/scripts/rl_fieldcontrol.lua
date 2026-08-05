@@ -17,6 +17,16 @@ rl_fieldcontrol.specialDungeonIds = {
   playerstation = {65531, 65532}
 }
 
+-- Normal visibility is `nil`.
+rl_fieldcontrol.fccVisibility = {
+  "bulkhead",
+  "hidden"
+}
+rl_fieldcontrol.fccVisibilityValue = {
+  bulkhead = 1,
+  hidden = 2
+}
+
 function rl_fieldcontrol.awaitOnMessage(msg, success, fail)
   if msg:finished() then
     if msg:succeeded() then

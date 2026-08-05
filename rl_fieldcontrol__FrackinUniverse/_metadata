@@ -1,0 +1,12 @@
+{
+  "author" : "rl.starbound",
+  "description" : "This extension provides integration between Field Control Technology and Frackin' Universe. Belter Dungeons and its Frackin' Universe Compatibility extension are needed for field control consoles to provide environmental hazard protection, and the Mech Compatibility Core and Mech Compatibility Loader mods are needed to extend that protection to mechs.\n\nFind the source code at:\nhttps://github.com/rl-starbound/rl_fieldcontrol",
+  "friendlyName" : "Field Control Technology - Frackin' Universe Compatibility",
+  "includes" : ["rl_belterdungeons", "rl_belterdungeons__FrackinUniverse"],
+  "link" : "steam://url/CommunityFilePage/3776987711",
+  "name" : "rl_fieldcontrol__FrackinUniverse",
+  "requires" : ["rl_fieldcontrol", "FrackinUniverse"],
+  "steamContentId" : "3776987711",
+  "tags" : "Mechanics",
+  "version" : "2.2.0"
+}

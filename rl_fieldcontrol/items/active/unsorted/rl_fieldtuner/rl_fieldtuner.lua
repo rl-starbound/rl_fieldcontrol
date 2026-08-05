@@ -206,7 +206,7 @@ function getTargetingData(shifting, pos)
   end
 
   local targetingData = {}
-  for _, pos in ipairs(rl_fieldcontrol.rectToSpaces(targetRect)) do
+  for _,pos in ipairs(rl_fieldcontrol.rectToSpaces(targetRect)) do
     local posDungeonId = world.dungeonId(pos)
     if world.isTileProtected(pos) and posDungeonId ~= self.dungeonId then
       table.insert(targetingData, {pos, 3})

@@ -19,7 +19,8 @@
             "cycle" : 2,
             "mode" : "loop"
           },
-          "bulkhead" : {}
+          "bulkhead" : {},
+          "hidden" : {}
         }
       }
     },
@@ -54,6 +55,11 @@
               "properties" : {
                 "image" : "<partImage>:bulkhead"
               }
+            },
+            "hidden" : {
+              "properties" : {
+                "image" : "<partImage>:hidden"
+              }
             }
           }
         }
@@ -84,6 +90,11 @@
             "bulkhead" : {
               "properties" : {
                 "image" : "<partImage>:bulkhead"
+              }
+            },
+            "hidden" : {
+              "properties" : {
+                "image" : "<partImage>:hidden"
               }
             }
           }
