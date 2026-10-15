@@ -3,8 +3,14 @@ require "/scripts/util.lua"
 
 rl_fieldcontrol = {}
 
+------------------------------------------------------------------------
+-- Definitions
+------------------------------------------------------------------------
+
 rl_fieldcontrol.fccUidTemplate = "rl_fieldcontrolconsole_%d"
 rl_fieldcontrol.fieldTunerPropertyName = "rl_fieldtuner"
+rl_fieldcontrol.playershipconsoleUid = "rl_playershipconsole"
+rl_fieldcontrol.playerstationconsoleUid = "playerstationconsole"
 rl_fieldcontrol.shieldswitchUid = "rl_shieldswitch"
 rl_fieldcontrol.stagehandUid = "rl_fieldmanager"
 
@@ -12,9 +18,18 @@ rl_fieldcontrol.fccDungeonIdRange = {0, 65519}
 rl_fieldcontrol.universeDungeonIdRange = {0, 65535}
 
 rl_fieldcontrol.forbiddenDungeonIds = {65524, 65525}
+rl_fieldcontrol.hullDungeonIds = {
+  playerstation=0
+}
 rl_fieldcontrol.specialDungeonIds = {
-  clientshipworld = {65531, 65532, 65535},
-  playerstation = {65531, 65532}
+  clientshipworld={65531, 65532, 65535},
+  playerstation={65531, 65532}
+}
+
+rl_fieldcontrol.fccHazardProtectionStatus = {
+  unavailable=1,
+  unnecessary=2,
+  available=3
 }
 
 -- Normal visibility is `nil`.
@@ -23,9 +38,13 @@ rl_fieldcontrol.fccVisibility = {
   "hidden"
 }
 rl_fieldcontrol.fccVisibilityValue = {
-  bulkhead = 1,
-  hidden = 2
+  bulkhead=1,
+  hidden=2
 }
+
+------------------------------------------------------------------------
+-- Generic Asynchronous and Transactional Logic
+------------------------------------------------------------------------
 
 function rl_fieldcontrol.awaitOnMessage(msg, success, fail)
   if msg:finished() then
@@ -38,6 +57,44 @@ function rl_fieldcontrol.awaitOnMessage(msg, success, fail)
   end
   return msg
 end
+
+function rl_fieldcontrol.beginTransaction(id, msg)
+  if msg then
+    self.transactions.types[id].msg = msg
+    self.transactions.onTransactions()
+  end
+end
+
+function rl_fieldcontrol.initTransactions(onTransactions, onNoTransactions)
+  self.transactions = {
+    types={}, onTransactions=onTransactions, onNoTransactions=onNoTransactions
+  }
+end
+
+function rl_fieldcontrol.processTransactions()
+  local preCount = 0
+  local postCount = 0
+  for _,v in pairs(self.transactions.types) do
+    if v.msg then
+      preCount = preCount + 1
+      v.msg = rl_fieldcontrol.awaitOnMessage(v.msg, v.onSuccess, v.onFailure)
+      if v.msg then postCount = postCount + 1 end
+    end
+  end
+  if preCount > 0 and postCount == 0 then
+    self.transactions.onNoTransactions()
+  end
+end
+
+function rl_fieldcontrol.registerTransaction(id, onSuccess, onFailure)
+  self.transactions.types[id] = {
+    msg=nil, onSuccess=onSuccess, onFailure=onFailure
+  }
+end
+
+------------------------------------------------------------------------
+-- Item (client-side) utils
+------------------------------------------------------------------------
 
 function rl_fieldcontrol.dungeonIdValidator(idRange)
   return function(dungeonId)
@@ -58,7 +115,7 @@ function rl_fieldcontrol.isFccShielded(dungeonId, notFinished)
 end
 
 function rl_fieldcontrol.isShipShielded(dungeonId)
-  return world.getProperty("ship.fuel") ~= nil and
+  return type(world.getProperty("ship.fuel")) == "number" and
     contains(rl_fieldcontrol.specialDungeonIds.clientshipworld, dungeonId)
 end
 
@@ -88,9 +145,15 @@ end
 --  return sb.printJson(out)
 --end
 
---
+function rl_fieldcontrol.updateVisibilityModeButtons(buttons)
+  local active = buttons[self.visibilityMode]
+  if active == nil then self.visibilityMode = nil end
+  for _,v in ipairs(buttons) do widget.setChecked(v, active == v) end
+end
+
+------------------------------------------------------------------------
 -- Object (server-side) utils
---
+------------------------------------------------------------------------
 
 function rl_fieldcontrol.currentOrRandomDungeonId(pos, dungeonIdValidator)
   local dungeonId = world.dungeonId(pos)

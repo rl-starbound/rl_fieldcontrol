@@ -4,8 +4,7 @@
     { "item" : "diamond", "count" : 3 },
     { "item" : "siliconboard", "count" : 1 },
     { "item" : "stickofram", "count" : 2 },
-    { "item" : "wire", "count" : 10 },
-    { "item" : "battery", "count" : 1 }
+    { "item" : "wire", "count" : 10 }
   ],
   "output" : { "item" : "rl_stationshieldswitch", "count" : 1 },
   "groups" : [ "craftingwiring", "mechanics" ]

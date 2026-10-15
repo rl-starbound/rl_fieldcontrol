@@ -1,0 +1,60 @@
+{
+  "objectName" : "rl_playershipconsoleapex",
+  "colonyTags" : ["electronic","technology","wired"],
+  "printable" : false,
+  "rarity" : "Rare",
+  "description" : "A console for controlling gravity, shielding, air, and hazard protection on ships.\n^red;Must be placed on a ship.",
+  "shortdescription" : "Ship Control Console",
+  "race" : "apex",
+  "category" : "wire",
+  "price" : 2000,
+
+  "apexDescription" : "This advanced console can control environmental fields on ships.",
+  "avianDescription" : "A terminal for controlling environmental fields on ships.",
+  "floranDescription" : "Thisss letss Floran control environment on ship.",
+  "glitchDescription" : "Interested. This terminal is able to control environmental fields on ships.",
+  "humanDescription" : "This console controls environmental fields on ships.",
+  "hylotlDescription" : "This advanced terminal is designed to control environmental fields on ships.",
+  "novakidDescription" : "A fancy computer for adjustin' the environment on a ship.",
+
+  "inventoryIcon" : "rl_playershipconsoleapexicon.png",
+  "orientations" : [
+    {
+      "imageLayers" : [
+        { "image" : "rl_playershipconsoleapex.png:shieldsdown.1", "fullbright" : true },
+        { "image" : "rl_playershipconsoleapexlit.png:default" }
+      ],
+      "imagePosition" : [-8, -8],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ],
+      "direction" : "right"
+    }
+  ],
+
+  "health" : 10,
+
+  "scripts" : [
+    "rl_playershipconsole.lua",
+    "/objects/scripts/rl_fieldcontrol/rl_fieldcontrol_multifieldconsole.lua"
+  ],
+  "scriptDelta" : 30,
+
+  "animation" : "rl_playershipconsole.animation",
+  "animationParts" : {
+    "bg" : "rl_playershipconsoleapex.png",
+    "fg" : "rl_playershipconsoleapexlit.png"
+  },
+  "animationPosition" : [-8, -8],
+
+  "lightColorActive" : [41, 59, 68],
+
+  "interactAction" : "ScriptPane",
+  "interactData" : "/interface/scripted/rl_playershipconsole/rl_playershipconsolegui.config",
+  "interfaceTitleIcon" : "/interface/scripted/rl_playershipconsole/rl_playershipconsoleapexicon.png",
+
+  "inputNodes" : [ [-1, 1], [-1, 0], [-1, -1] ],
+  "outputNodes" : [ [0, 1], [0, 0], [0, -1] ],
+
+  "validWorldType" : "clientshipworld"
+}

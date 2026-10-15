@@ -5,7 +5,7 @@
     { "item" : "siliconboard", "count" : 1 },
     { "item" : "stickofram", "count" : 2 },
     { "item" : "wire", "count" : 10 },
-    { "item" : "smallbattery", "count" : 4 }
+    { "item" : "smallbattery", "count" : 6 }
   ],
   "output" : { "item" : "rl_fieldtuner", "count" : 1 },
   "groups" : [ "craftingfarm2", "survival" ]

@@ -5,9 +5,9 @@
   "includes" : ["rl_belterdungeons"],
   "link" : "steam://url/CommunityFilePage/3776970209",
   "name" : "rl_fieldcontrol__Arcana",
-  "priority" : 9000,
+  "priority" : 9000, // match Arcana's priority
   "requires" : ["rl_fieldcontrol", "Arcana"],
   "steamContentId" : "3776970209",
   "tags" : "Mechanics",
-  "version" : "2.2.0"
+  "version" : "3.0.0"
 }

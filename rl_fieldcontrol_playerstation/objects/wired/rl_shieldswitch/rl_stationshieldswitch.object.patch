@@ -1,0 +1,53 @@
+[
+  { "op" : "remove",
+    "path" : "/health"
+  },
+  { "op" : "replace",
+    "path" : "/description",
+    "value" : "An obsolete switch. It does nothing.\n^red;Must be placed on a station."
+  },
+  { "op" : "replace",
+    "path" : "/apexDescription",
+    "value" : "An obsolete switch. It does nothing."
+  },
+  { "op" : "replace",
+    "path" : "/avianDescription",
+    "value" : "An obsolete switch. It does nothing."
+  },
+  { "op" : "replace",
+    "path" : "/floranDescription",
+    "value" : "Uselesss ssswitch."
+  },
+  { "op" : "replace",
+    "path" : "/glitchDescription",
+    "value" : "Unimpressed. More obsolete technology."
+  },
+  { "op" : "replace",
+    "path" : "/humanDescription",
+    "value" : "An obsolete switch. It does nothing."
+  },
+  { "op" : "replace",
+    "path" : "/hylotlDescription",
+    "value" : "An obsolete switch. It does nothing."
+  },
+  { "op" : "replace",
+    "path" : "/novakidDescription",
+    "value" : "This here switch's junk."
+  },
+  { "op" : "replace",
+    "path" : "/category",
+    "value" : "junk"
+  },
+  { "op" : "replace",
+    "path" : "/price",
+    "value" : 100
+  },
+  { "op" : "replace",
+    "path" : "/scripts",
+    "value" : [ "rl_stationshieldswitch_obsolete.lua" ]
+  },
+  { "op" : "replace",
+    "path" : "/scriptDelta",
+    "value" : 0
+  }
+]

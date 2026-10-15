@@ -5,7 +5,7 @@
     { "item" : "siliconboard", "count" : 1 },
     { "item" : "stickofram", "count" : 4 },
     { "item" : "wire", "count" : 20 },
-    { "item" : "battery", "count" : 1 }
+    { "item" : "battery", "count" : 2 }
   ],
   "output" : { "item" : "rl_fieldcontrolconsole", "count" : 1 },
   "groups" : [ "craftingwiring", "mechanics" ]

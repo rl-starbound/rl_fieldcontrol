@@ -1,0 +1,38 @@
+{
+  "itemName" : "rl_fieldcontrolblueprints1",
+  "level" : 1,
+  "price" : 100,
+  "maxStack" : 1,
+  "rarity" : "Rare",
+  "description" : "Schematic diagrams of shield generators.",
+  "shortdescription" : "Field Control Results #1",
+  "tooltipKind" : "base",
+  "category" : "Blueprint",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "/codex/human/humancover6.png",
+
+  "animation" : "rl_fieldcontrolblueprints.animation",
+  "animationParts" : {
+    "blueprint" : "/codex/human/humancover6.png"
+  },
+
+  "scripts" : ["rl_fieldcontrolblueprints.lua"],
+
+  "swingTime" : 0.15,
+
+  "recipes" : ["rl_stationshieldswitch"],
+  "speciesRecipes" : {
+    "apex" : ["rl_playershipconsoleapex"],
+    "avian" : ["rl_playershipconsoleavian"],
+    "floran" : ["rl_playershipconsolefloran"],
+    "glitch" : ["rl_playershipconsoleglitch"],
+    "human" : ["rl_playershipconsolehuman"],
+    "hylotl" : ["rl_playershipconsolehylotl"],
+    "novakid" : ["rl_playershipconsolenovakid"]
+  },
+
+  // The "default" techstation is the Apex techstation, so make the
+  // "default" ship shield switch the Apex switch.
+  "speciesRecipesDefault" : ["rl_playershipconsoleapex"]
+}

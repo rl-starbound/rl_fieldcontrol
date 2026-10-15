@@ -8,5 +8,5 @@
   "requires" : ["rl_fieldcontrol", "FrackinUniverse"],
   "steamContentId" : "3776987711",
   "tags" : "Mechanics",
-  "version" : "2.2.0"
+  "version" : "3.0.0"
 }

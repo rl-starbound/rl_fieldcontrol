@@ -1,0 +1,11 @@
+{
+  "author" : "rl.starbound",
+  "description" : "This mod extends Field Control Technology by automatically upgrading the Space Station Console in each personal space station to the Station Control Console, which include shielding and environmental controls, wiring, and password protection.\n\nFind the source code at:\nhttps://github.com/rl-starbound/rl_fieldcontrol",
+  "friendlyName" : "Field Control Technology - Station Control Console",
+  "link" : "steam://url/CommunityFilePage/3819727266",
+  "name" : "rl_fieldcontrol_playerstation",
+  "requires" : ["rl_fieldcontrol"],
+  "steamContentId" : "3819727266",
+  "tags" : "In-Game Tools|Mechanics",
+  "version" : "3.0.0"
+}

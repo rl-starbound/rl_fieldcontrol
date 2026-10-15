@@ -1,0 +1,54 @@
+[
+  { "op" : "test",
+    "path" : "/input/0/item",
+    "value" : "solariumstar"
+  },
+  { "op" : "test",
+    "path" : "/input/0/count",
+    "value" : 20
+  },
+  { "op" : "test",
+    "path" : "/input/1/item",
+    "value" : "diamond"
+  },
+  { "op" : "test",
+    "path" : "/input/1/count",
+    "value" : 3
+  },
+  { "op" : "test",
+    "path" : "/input/2/item",
+    "value" : "siliconboard"
+  },
+  { "op" : "test",
+    "path" : "/input/2/count",
+    "value" : 1
+  },
+  { "op" : "test",
+    "path" : "/input/3/item",
+    "value" : "stickofram"
+  },
+  { "op" : "test",
+    "path" : "/input/3/count",
+    "value" : 2
+  },
+  { "op" : "test",
+    "path" : "/input/4/item",
+    "value" : "wire"
+  },
+  { "op" : "test",
+    "path" : "/input/4/count",
+    "value" : 10
+  },
+  { "op" : "test",
+    "path" : "/input/5/item",
+    "value" : "battery"
+  },
+  { "op" : "test",
+    "path" : "/input/5/count",
+    "value" : 1
+  },
+  { "op" : "replace",
+    "path" : "/input/5/item",
+    "value" : "orion_crafting_enhancedBattery"
+  }
+]

@@ -4,15 +4,38 @@
       "switchState" : {
         "default" : "dead",
         "states" : {
+          "dead" : {
+            "properties" : {
+              "lightsOff" : ["activeGlow", "errorGlow"]
+            }
+          },
+          "off" : {
+            "properties" : {
+              "lightsOn" : ["activeGlow"],
+              "lightsOff" : ["errorGlow"]
+            }
+          },
           "on" : {
             "frames" : 4,
             "cycle" : 0.5,
-            "mode" : "loop"
+            "mode" : "loop",
+            "properties" : {
+              "lightsOn" : ["activeGlow"],
+              "lightsOff" : ["errorGlow"]
+            }
           },
-          "off" : {},
-          "error" : {},
-          "dup" : {},
-          "dead" : {}
+          "error" : {
+            "properties" : {
+              "lightsOn" : ["errorGlow"],
+              "lightsOff" : ["activeGlow"]
+            }
+          },
+          "dup" : {
+            "properties" : {
+              "lightsOn" : ["errorGlow"],
+              "lightsOff" : ["activeGlow"]
+            }
+          }
         }
       }
     },
@@ -93,6 +116,19 @@
           }
         }
       }
+    }
+  },
+
+  "lights" : {
+    "activeGlow" : {
+      "active" : false,
+      "position" : [1, 1],
+      "color" : [31, 40, 51]
+    },
+    "errorGlow" : {
+      "active" : false,
+      "position" : [1, 1],
+      "color" : [51, 40, 31]
     }
   },
 

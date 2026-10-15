@@ -1,0 +1,25 @@
+{
+  "itemName" : "rl_fieldcontrolblueprints2",
+  "level" : 1,
+  "price" : 200,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "Results of research into applications of high-energy physics.",
+  "shortdescription" : "Field Control Results #2",
+  "tooltipKind" : "base",
+  "category" : "Blueprint",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "/items/active/unsorted/audiodisc/audiodisc.png",
+
+  "animation" : "rl_fieldcontrolblueprints.animation",
+  "animationParts" : {
+    "blueprint" : "/items/active/unsorted/audiodisc/audiodisc.png"
+  },
+
+  "scripts" : ["rl_fieldcontrolblueprints.lua"],
+
+  "swingTime" : 0.15,
+
+  "recipes" : ["rl_fieldcontrolconsole", "rl_fieldtuner", "rl_fieldtunerxl", "rl_fieldmarker"]
+}

@@ -1,0 +1,30 @@
+{
+  "id" : "rl_fieldcontrolexperiment1",
+  "prerequisites" : [ "techscientist6" ],
+  "title" : "^orange;Research Assistance",
+  "text" : "My research investigates fields, the physical forces that shape space-time around us. I believe I can manipulate fields to make the universe more hospitable to life, but I need some rare materials to progress my work. ^green;Could you bring me ^orange;5 Diamonds^reset;?",
+  "completionText" : "Thank you! My research is getting closer to paying off. I hope you find my initial results useful.",
+  "moneyRange" : [300, 300],
+  "rewards" : [
+    [ [ "rl_fieldcontrolblueprints1", 1 ] ]
+  ],
+
+  "updateDelta" : 10,
+  "script" : "/quests/scripts/main.lua",
+  "scriptConfig" : {
+    "portraits" : {
+      "default" : "questGiver"
+    },
+    "requireTurnIn" : true,
+
+    "turnInDescription" : "Speak to the ^orange;human scientist^reset; at the ^orange;Outpost^reset;",
+    "conditions" : [
+      {
+        "type" : "gatherItem",
+        "itemName" : "diamond",
+        "count" : 5,
+        "consume" : true
+      }
+    ]
+  }
+}

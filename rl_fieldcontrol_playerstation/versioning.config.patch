@@ -1,0 +1,6 @@
+[
+  { "op" : "add",
+    "path" : "/rl_fieldcontrol_playerstation",
+    "value" : 3
+  }
+]

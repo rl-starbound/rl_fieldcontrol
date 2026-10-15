@@ -1,0 +1,97 @@
+[
+  { "op" : "test",
+    "path" : "/lightColor",
+    "value" : [130, 130, 130]
+  },
+  { "op" : "test",
+    "path" : "/lightPosition",
+    "value" : [-1, 0]
+  },
+  { "op" : "test",
+    "path" : "/orientations/0/imageLayers/0/image",
+    "value" : "playerstationconsole.png:<color>.<frame>"
+  },
+  { "op" : "test",
+    "path" : "/orientations/0/imageLayers/1/image",
+    "value" : "playerstationconsolelit.png:<color>.<frame>"
+  },
+  { "op" : "test",
+    "path" : "/orientations/0/imagePosition",
+    "value" : [-16, -8]
+  },
+  { "op" : "test",
+    "path" : "/animation",
+    "value" : "/objects/ship/techstation.animation"
+  },
+  { "op" : "test",
+    "path" : "/animationParts",
+    "inverse" : true
+  },
+  { "op" : "test",
+    "path" : "/animationPosition",
+    "inverse" : true
+  },
+  { "op" : "test",
+    "path" : "/scripts/0",
+    "value" : "playerstationconsole.lua"
+  },
+  { "op" : "test",
+    "path" : "/interactData",
+    "value" : "/interface/scripted/playerstationconsole/playerstationconsolegui.config"
+  },
+  { "op" : "test",
+    "path" : "/inputNodes",
+    "inverse" : true
+  },
+  { "op" : "test",
+    "path" : "/outputNodes",
+    "inverse" : true
+  },
+  { "op" : "remove",
+    "path" : "/lightColor"
+  },
+  { "op" : "remove",
+    "path" : "/lightPosition"
+  },
+  { "op" : "remove",
+    "path" : "/orientations/0/frames"
+  },
+  { "op" : "remove",
+    "path" : "/orientations/0/animationCycle"
+  },
+  { "op" : "replace",
+    "path" : "/orientations/0/imageLayers/0/image",
+    "value" : "rl_fieldcontrol_playerstationconsole.png:shieldsdown.1"
+  },
+  { "op" : "replace",
+    "path" : "/orientations/0/imageLayers/1/image",
+    "value" : "rl_fieldcontrol_playerstationconsolelit.png:default"
+  },
+  { "op" : "replace",
+    "path" : "/animation",
+    "value" : "rl_fieldcontrol_playerstationconsole.animation"
+  },
+  { "op" : "replace",
+    "path" : "/interactData",
+    "value" : "/interface/scripted/playerstationconsole/rl_fieldcontrol_playerstationconsolegui.config"
+  },
+  { "op" : "add",
+    "path" : "/animationParts",
+    "value" : {
+      "bg" : "rl_fieldcontrol_playerstationconsole.png",
+      "fg" : "rl_fieldcontrol_playerstationconsolelit.png"
+    }
+  },
+  { "op" : "add",
+    "path" : "/animationPosition",
+    "value" : [-16, -8]
+  },
+  { "op" : "add",
+    "path" : "/scripts/-",
+    "value" : "rl_fieldcontrol_playerstationconsole.lua"
+  },
+  { "op" : "add",
+    "path" : "/validWorldType",
+    "value" : "playerstation"
+  }
+]

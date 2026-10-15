@@ -1,0 +1,122 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "consoleState" : {
+        "default" : "dead",
+        "states" : {
+          "dead" : {
+            "properties" : {
+              "lightsOff" : ["activeGlow"]
+            }
+          },
+          "shieldsdown" : {
+            "frames" : 18,
+            "cycle" : 1.8,
+            "mode" : "loop",
+            "properties" : {
+              "lightsOn" : ["activeGlow"]
+            }
+          },
+          "shieldsup" : {
+            "frames" : 18,
+            "cycle" : 1.8,
+            "mode" : "loop",
+            "properties" : {
+              "lightsOn" : ["activeGlow"]
+            }
+          },
+          "error" : {
+            "frames" : 18,
+            "cycle" : 1.8,
+            "mode" : "loop",
+            "properties" : {
+              "lightsOn" : ["activeGlow"]
+            }
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "bg" : {
+        "properties" : {
+          "centered" : false
+        },
+
+        "partStates" : {
+          "consoleState" : {
+            "dead" : {
+              "properties" : {
+                "image" : "<partImage>:dead",
+                "fullbright" : true
+              }
+            },
+            "shieldsdown" : {
+              "properties" : {
+                "image" : "<partImage>:shieldsdown.<frame>",
+                "fullbright" : true
+              }
+            },
+            "shieldsup" : {
+              "properties" : {
+                "image" : "<partImage>:shieldsup.<frame>",
+                "fullbright" : true
+              }
+            },
+            "error" : {
+              "properties" : {
+                "image" : "<partImage>:error.<frame>",
+                "fullbright" : true
+              }
+            }
+          }
+        }
+      },
+      "fg" : {
+        "properties" : {
+          "centered" : false,
+          "zLevel" : 1
+        },
+
+        "partStates" : {
+          "consoleState" : {
+            "dead" : {
+              "properties" : {
+                "image" : "<partImage>"
+              }
+            },
+            "shieldsdown" : {
+              "properties" : {
+                "image" : "<partImage>"
+              }
+            },
+            "shieldsup" : {
+              "properties" : {
+                "image" : "<partImage>"
+              }
+            },
+            "error" : {
+              "properties" : {
+                "image" : "<partImage>"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "lights" : {
+    "activeGlow" : {
+      "active" : false,
+      "position" : [1.5, 1.5],
+      "color" : [130, 130, 130]
+    }
+  },
+
+  "sounds" : {
+    "shieldsUp" : [ "/sfx/interface/energy_full1.ogg" ],
+    "shieldsDown" : [ "/sfx/interface/energy_out1.ogg" ],
+    "shipUpgrade" : [ "/sfx/interface/ship_powerup.ogg" ]
+  }
+}

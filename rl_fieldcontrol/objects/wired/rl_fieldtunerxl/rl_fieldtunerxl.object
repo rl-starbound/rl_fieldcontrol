@@ -59,9 +59,6 @@
   "scripts" : [ "rl_fieldtunerxl.lua" ],
   "scriptDelta" : 10,
 
-  "lightColorOn" : [31, 40, 51],
-  "lightPosition" : [-1, 0],
-
   "animation" : "rl_fieldtunerxl.animation",
   "animationParts" : {
     "bg" : "rl_fieldtunerxl.png",

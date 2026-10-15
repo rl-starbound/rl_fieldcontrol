@@ -1,63 +1,66 @@
 # Starbound mod: Field Control Technology
 
-The **Field Control Technology** mod allows players to control the gravity, atmosphere, and shielding within arbitrarily-shaped regions in worlds. Some applications include: protecting locked rooms in your base, protecting bases from meteor strikes, building bases in asteroid belts so that they have air and gravity, and so forth.
+The **Field Control Technology** mod allows players to control the gravity, shielding, atmosphere, and environmental protection within arbitrarily-shaped regions in worlds. Some applications include: protecting locked rooms in your base, protecting bases from meteor strikes, building bases in asteroid belts so that they have air and gravity, and so forth.
 
 Manipulating the physical forces of the universe can be complicated, so please read the [user's guide](users-guide.md) for instructions on using these tools.
 
 This mod provides a number of items for controlling the forces of the Starbound universe:
-* Ship Shield Switch and Station Shield Switch
 * Field Control Console
 * Portable Field Tuner
 * Field Tuner XL and Field Tuning Markers
+* Ship Control Console
+* enhanced Space Station Console\*
 
-### Ship Shield Switch
-
-Player ships typically consist of multiple fields. The **Ship Shield Switch** (`rl_shipshieldswitchapex`, `rl_shipshieldswitchavian`, *etc.*) synchronizes the shielding of the default fields on a player ship.
-
-The ship shield switch can be crafted at the wiring station, in the mechanics tab. Each of the base game races has a ship shield switch colored with their race's ship color scheme, but they all function identically.
-
-### Station Shield Switch
-
-Player space stations typically consist of multiple fields. The **Station Shield Switch** (`rl_stationshieldswitch`) synchronizes the shielding of the default fields on a player space station.
-
-The station shield switch can be crafted at the wiring station, in the mechanics tab.
+*As of v3.0.0*, field control technology recipes must be learned from two quests, available from the wandering human scientist at the Outpost near Terramart. Elliot's tech challenge quest line is a prerequisite for these quests.
 
 ### Field Control Console
 
-Each **Field Control Console** (`rl_fieldcontrolconsole`) manipulates the physical forces of one specific field frequency within a world. Gravity, atmosphere, shielding, and (optionally) environmental protection can be controlled at this console.
+Each **field control console** (`rl_fieldcontrolconsole`) manipulates the physical forces of one specific field frequency within a world. Gravity, atmosphere, shielding, and (optionally) environmental protection can be controlled at this console. Field control consoles can be password protected, and can be wired for remote control.
 
-The field control console is crafted at the wiring station, in the mechanics tab.
+The field control console is crafted at the **wiring station**, in the **mechanics** tab.
 
 ### Portable Field Tuner
 
-The **Portable Field Tuner** (`rl_fieldtuner`) can be used by the player to tune arbitrarily-shaped regions within a world to a specific field frequency. Right clicking sets the tuner's field grid to the field frequency below the cursor, and left clicking tunes blocks under the field grid to the chosen field frequency.
+The **portable field tuner** (`rl_fieldtuner`) can be used by the player to tune arbitrarily-shaped regions within a world to a specific field frequency. Right clicking sets the tuner's field grid to the field frequency below the cursor, and left clicking tunes blocks under the field grid to the chosen field frequency.
 
-The portable field tuner is crafted at the agricultural station, in the survival tab.
+The portable field tuner is crafted at the **agricultural station**, in the **survival** tab.
 
 ### Field Tuner XL and Field Tuning Markers
 
-The **Field Tuner XL** (`rl_fieldtunerxl`) can be used to tune very large areas far more quickly than a portable field tuner. **Field Tuning Markers** (`rl_fieldmarker`) are wired to the field tuner XL to define the rectangular area to tune.
+The **field tuner XL** (`rl_fieldtunerxl`) can be used to tune very large areas far more quickly than a portable field tuner. **Field tuning markers** (`rl_fieldmarker`) are wired to the field tuner XL to define the rectangular area to tune.
 
-The field tuner XL and field tuning markers are crafted at the wiring station, in the mechanics tab.
+The field tuner XL and field tuning markers are crafted at the **wiring station**, in the **mechanics** tab.
+
+### Ship Control Console
+
+Player ships consist of multiple fields. The **ship control console** (`rl_playershipconsoleapex`, `rl_playershipconsoleavian`, *etc.*) operates like a field control console, but synchronizes its effects across the default fields in a player ship.
+
+The ship control console can be crafted at the **wiring station**, in the **mechanics** tab. Each of the base game races has a ship control console styled according to their race's ship, but they all function identically.
+
+### enhanced Space Station Console
+
+Personal space stations consist of multiple fields. If [Field Control Technology - Station Control Console](README_playerstation.md) is installed, the space station console found on all personal space stations will be upgraded to operate like a field control console, synchronizing its effects across the default fields in a personal space station.
+
+If *Field Control Technology: Station Control Console* is not installed, the **station shield switch** (`rl_stationshieldswitch`) can be used to synchronize the shielding of the default fields in a personal space station. The station shield switch can be crafted at the **wiring station**, in the **mechanics** tab.
 
 ## Optional Functionality
 
 If either [Belter Dungeons](https://community.playstarbound.com/resources/belter-dungeons.6357/) or [No Belter Dungeons](https://community.playstarbound.com/resources/no-belter-dungeons.6358/) v2.2.0 or newer is installed, the field control console will gain the ability to protect players from environmental hazards. If both [Mech Compatibility Core](https://steamcommunity.com/sharedfiles/filedetails/?id=3371002682) and [Mech Compatibility Loader](https://steamcommunity.com/sharedfiles/filedetails/?id=3371011064) are installed, this protection extends to mechs.
 
 Field control consoles can only protect against known environmental hazards. Hazards added by mods will require extensions. Currently available extensions are:
-* [Arcana](https://community.playstarbound.com/resources/field-control-technology-arcana-compatibility.6405/)
-* [Frackin' Universe](https://community.playstarbound.com/resources/field-control-technology-frackin-universe-compatibility.6406/)
+* [Arcana Compatibility](https://community.playstarbound.com/resources/field-control-technology-arcana-compatibility.6405/)
+* [Frackin' Universe Compatibility](https://community.playstarbound.com/resources/field-control-technology-frackin-universe-compatibility.6406/)
 
 ## Compatibility
 
-This mod uses Starbound modding best practices, so it should be compatible with most mods. It is known to be incompatible with [Password Protection Module for Field Control Technology](https://steamcommunity.com/sharedfiles/filedetails/?id=2885032247); a replacement for that extension is coming soon.
+This mod should be compatible with nearly all mods. It is known to be incompatible with [Password Protection Module for Field Control Technology](https://steamcommunity.com/sharedfiles/filedetails/?id=2885032247), but v3.0.0 or later of this mod fully replaces the functionality of that mod.
 
 ## Uninstallation
 
 Due to how the Starbound core engine handles removed mod assets, some issues may occur. None of these issues are major, but you should be aware of them before removing this mod.
-* **You are strongly advised to disable any ship or station shield switches and deregister any field control consoles before removing this mod**. Any fields that you had tuned or manipulated in any world will remain as you last set them before removal of this mod, including shielding and environmental protection.
-* The first time you load a character after removing this mod, the game may crash. However, you should be able to load the character again, and play should resume with the character returned to their ship.
-* The first time you beam to any world that contained a field control console, field tuner XL, field tuning marker, or ship or station shield switch, those objects will cease to exist and leave error messages in the game log. If any of those objects were stored in a container, they will turn into perfectly generic items, as will any portable field tuners.
+* **You are strongly advised to turn off ship and station shielding, turn on ship and station air, and deregister any field control consoles before removing this mod**. Any fields that you had tuned or manipulated in any world will remain as you last set them before removal of this mod, including shielding, air, and environmental protection. If you ignore this advice, you will have to use admin commands to alter these properties in affected regions.
+* The first time you load a character after removing this mod, the game may crash. However, you should be able to load the character again, and normal play should resume with the character returned to their ship.
+* The first time you beam to any world that contained a field control console, field tuner XL, field tuning marker, or ship control console, those objects will cease to exist and leave error messages in the game log. If any of those objects were stored in a container, they will turn into perfectly generic items, as will any portable field tuners. No other negative effects should occur.
 
 ## Credits
 

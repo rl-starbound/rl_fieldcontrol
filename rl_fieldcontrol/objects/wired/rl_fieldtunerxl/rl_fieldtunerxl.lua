@@ -10,7 +10,6 @@ function init()
       return vec2.add(self.position, v)
     end)
 
-  self.lightColor = config.getParameter("lightColorOn")
   self.maxTilesPerTick = 1000
 
   self.validateDungeonId = rl_fieldcontrol.dungeonIdValidator(
@@ -25,7 +24,6 @@ function init()
   message.setHandler("tuneToDungeonId", tuneToDungeonId)
 
   object.setInteractive(true)
-  object.setLightColor({0, 0, 0, 0})
 end
 
 function onInteraction(args)
@@ -43,7 +41,6 @@ function update(dt)
     if animator.animationState("tunerState") == "inactive" then
       self.tuningCooldown = nil
       object.setInteractive(true)
-      object.setLightColor({0, 0, 0, 0})
     end
   elseif self.tuningWarmup then
     if animator.animationState("tunerState") == "active" then
@@ -103,7 +100,6 @@ function tuneToDungeonId(_, _, dungeonId)
   self.tuningCoroutine = coroutine.create(tuningTask)
   if object.outputNodeCount() > 0 then object.setOutputNodeLevel(0, true) end
   animator.setAnimationState("tunerState", "activate")
-  object.setLightColor(self.lightColor)
   self.tuningWarmup = true
 
   return true

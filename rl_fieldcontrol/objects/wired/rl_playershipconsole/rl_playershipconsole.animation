@@ -1,0 +1,172 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "consoleState" : {
+        "default" : "dead",
+        "states" : {
+          "dead" : {
+            "properties" : {
+              "lightsOff" : ["activeGlow", "errorGlow"]
+            }
+          },
+          "shieldsdown" : {
+            "frames" : 32,
+            "cycle" : 3.0,
+            "mode" : "loop",
+            "properties" : {
+              "lightsOn" : ["activeGlow"],
+              "lightsOff" : ["errorGlow"]
+            }
+          },
+          "shieldsup" : {
+            "frames" : 32,
+            "cycle" : 3.0,
+            "mode" : "loop",
+            "properties" : {
+              "lightsOn" : ["activeGlow"],
+              "lightsOff" : ["errorGlow"]
+            }
+          },
+          "error" : {
+            "properties" : {
+              "lightsOn" : ["errorGlow"],
+              "lightsOff" : ["activeGlow"]
+            }
+          },
+          "dup" : {
+            "properties" : {
+              "lightsOn" : ["errorGlow"],
+              "lightsOff" : ["activeGlow"]
+            }
+          },
+          "bulkhead" : {
+            "properties" : {
+              "lightsOff" : ["activeGlow", "errorGlow"]
+            }
+          },
+          "hidden" : {
+            "properties" : {
+              "lightsOff" : ["activeGlow", "errorGlow"]
+            }
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "bg" : {
+        "properties" : {
+          "centered" : false
+        },
+
+        "partStates" : {
+          "consoleState" : {
+            "shieldsdown" : {
+              "properties" : {
+                "image" : "<partImage>:shieldsdown.<frame>",
+                "fullbright" : true
+              }
+            },
+            "shieldsup" : {
+              "properties" : {
+                "image" : "<partImage>:shieldsup.<frame>",
+                "fullbright" : true
+              }
+            },
+            "dead" : {
+              "properties" : {
+                "image" : "<partImage>:dead"
+              }
+            },
+            "error" : {
+              "properties" : {
+                "image" : "<partImage>:error",
+                "fullbright" : true
+              }
+            },
+            "dup" : {
+              "properties" : {
+                "image" : "<partImage>:dup",
+                "fullbright" : true
+              }
+            },
+            "bulkhead" : {
+              "properties" : {
+                "image" : "<partImage>:bulkhead"
+              }
+            },
+            "hidden" : {
+              "properties" : {
+                "image" : "<partImage>:hidden"
+              }
+            }
+          }
+        }
+      },
+      "fg" : {
+        "properties" : {
+          "centered" : false,
+          "zLevel" : 1
+        },
+
+        "partStates" : {
+          "consoleState" : {
+            "shieldsdown" : {
+              "properties" : {
+                "image" : "<partImage>:default"
+              }
+            },
+            "shieldsup" : {
+              "properties" : {
+                "image" : "<partImage>:default"
+              }
+            },
+            "dead" : {
+              "properties" : {
+                "image" : "<partImage>:default"
+              }
+            },
+            "error" : {
+              "properties" : {
+                "image" : "<partImage>:default"
+              }
+            },
+            "dup" : {
+              "properties" : {
+                "image" : "<partImage>:default"
+              }
+            },
+            "bulkhead" : {
+              "properties" : {
+                "image" : "<partImage>:bulkhead"
+              }
+            },
+            "hidden" : {
+              "properties" : {
+                "image" : "<partImage>:hidden"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "lights" : {
+    "activeGlow" : {
+      "active" : false,
+      "position" : [1, 2],
+      "color" : [41, 59, 68]
+    },
+    "errorGlow" : {
+      "active" : false,
+      "position" : [1, 2],
+      "color" : [41, 59, 68]
+    }
+  },
+
+  "sounds" : {
+    "shieldsUp" : [ "/sfx/interface/energy_full1.ogg" ],
+    "shieldsDown" : [ "/sfx/interface/energy_out1.ogg" ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id" : "rl_fieldcontrolexperiment2",
+  "prerequisites" : [ "rl_fieldcontrolexperiment1" ],
+  "title" : "^orange;Field Control",
+  "text" : "I'm really close to a breakthrough in controlling fields for the benefit of all life. I only need a material strong enough to both channel and contain the energies involved. ^green;Could you bring me ^orange;30 Solarium Stars^reset;? Yes, I think that should do it.",
+  "completionText" : "Eureka! My discovery will revolutionize the world. I hope you're able to make use of the results.",
+  "moneyRange" : [300, 300],
+  "rewards" : [
+    [ [ "rl_fieldcontrolblueprints2", 1 ] ]
+  ],
+
+  "updateDelta" : 10,
+  "script" : "/quests/scripts/main.lua",
+  "scriptConfig" : {
+    "portraits" : {
+      "default" : "questGiver"
+    },
+    "requireTurnIn" : true,
+
+    "turnInDescription" : "Speak to the ^orange;human scientist^reset; at the ^orange;Outpost^reset;",
+    "conditions" : [
+      {
+        "type" : "gatherItem",
+        "itemName" : "solariumstar",
+        "count" : 30,
+        "consume" : true
+      }
+    ]
+  }
+}

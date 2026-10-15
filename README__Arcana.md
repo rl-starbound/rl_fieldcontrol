@@ -1,6 +1,6 @@
 # Field Control Technology - Arcana Compatibility
 
-This extension provides integration between [Field Control Technology](https://community.playstarbound.com/resources/field-control-technology.6028/) and [Arcana](https://github.com/sleepySva/sva_arcana). Specifically, it enables field control consoles to protect players from environmental hazards added by Arcana.
+This extension provides integration between [Field Control Technology](https://community.playstarbound.com/resources/field-control-technology.6028/) and [Arcana](https://github.com/sleepySva/sva_arcana). It enables field control consoles to protect players from environmental hazards added by Arcana. It also modifies some of the recipes to use Arcana crafting components. (Note that if the Frackin' Universe compatibility extension is also installed, its recipes will take precedence.)
 
 To enable environmental protection, either [Belter Dungeons](https://community.playstarbound.com/resources/belter-dungeons.6357/) or [No Belter Dungeons](https://community.playstarbound.com/resources/no-belter-dungeons.6358/) v2.2.0 or newer must be installed.
 

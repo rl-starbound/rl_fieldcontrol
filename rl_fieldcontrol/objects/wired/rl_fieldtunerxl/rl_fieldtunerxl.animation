@@ -4,14 +4,19 @@
       "tunerState" : {
         "default" : "inactive",
         "states" : {
-          "inactive" : {},
+          "inactive" : {
+            "properties" : {
+              "lightsOff" : ["activeGlow"]
+            }
+          },
           "activate" : {
             "frames" : 4,
             "cycle" : 0.4,
             "mode" : "transition",
             "transition" : "warmup",
             "properties" : {
-              "immediateSound" : "/sfx/objects/checkpoint_activate1.ogg"
+              "immediateSound" : "/sfx/objects/checkpoint_activate1.ogg",
+              "lightsOn" : ["activeGlow"]
             }
           },
           "warmup" : {
@@ -34,6 +39,9 @@
                 "/sfx/interface/sniper_mark_pitch8.ogg",
                 "/sfx/interface/sniper_mark_pitch10.ogg"
               ]
+            },
+            "properties" : {
+              "lightsOn" : ["activeGlow"]
             }
           },
           "active" : {
@@ -55,6 +63,9 @@
                 "/sfx/interface/sniper_mark_pitch8.ogg",
                 "/sfx/interface/sniper_mark_pitch10.ogg"
               ]
+            },
+            "properties" : {
+              "lightsOn" : ["activeGlow"]
             }
           },
           "deactivate" : {
@@ -63,7 +74,8 @@
             "mode" : "transition",
             "transition" : "inactive",
             "properties" : {
-              "immediateSound" : "/sfx/objects/checkpoint_activate1.ogg"
+              "immediateSound" : "/sfx/objects/checkpoint_activate1.ogg",
+              "lightsOn" : ["activeGlow"]
             }
           }
         }
@@ -146,6 +158,14 @@
           }
         }
       }
+    }
+  },
+
+  "lights" : {
+    "activeGlow" : {
+      "active" : false,
+      "position" : [1, 0],
+      "color" : [31, 40, 51]
     }
   }
 }

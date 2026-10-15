@@ -1,0 +1,134 @@
+[
+  { "op" : "add",
+    "path" : "/aetherweathernew",
+    "value" : { "stat" : "aetherImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/aetherweathernew2",
+    "value" : { "stat" : "aetherImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/aetherweathernew3",
+    "value" : { "stat" : "aetherImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/biomepoison1",
+    "value" : { "stat" : "poisongasImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/biomepoison2",
+    "value" : { "stat" : "poisongasImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/biomepoison3",
+    "value" : { "stat" : "poisongasImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/biomepoisongas",
+    "value" : { "stat" : "poisongasImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/desertweathernew",
+    "value" : { "stat" : "ffextremeheatImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/desertweathernewdeadly",
+    "value" : { "stat" : "ffextremeheatImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomecold0",
+    "value" : { "stat" : "ffextremecoldImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomecold1",
+    "value" : { "stat" : "ffextremecoldImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomecold2",
+    "value" : { "stat" : "ffextremecoldImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomecold3",
+    "value" : { "stat" : "ffextremecoldImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomeelectric1",
+    "value" : { "stat" : "biomeelectricImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomeelectric2",
+    "value" : { "stat" : "biomeelectricImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomeelectric3",
+    "value" : { "stat" : "biomeelectricImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomeheat1",
+    "value" : { "stat" : "ffextremeheatImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomeheat2",
+    "value" : { "stat" : "ffextremeheatImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/ffbiomeheat3",
+    "value" : { "stat" : "ffextremeheatImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/gasworld1",
+    "value" : { "stat" : "extremepressureProtection", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/gasworld2",
+    "value" : { "stat" : "extremepressureProtection", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/gasworld3",
+    "value" : { "stat" : "extremepressureProtection", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/jungleweathernew",
+    "value" : { "stat" : "fujungleslowImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/protoweather",
+    "value" : { "stat" : "protoImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/protoweather2",
+    "value" : { "stat" : "protoImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/radioactiveweathernew",
+    "value" : { "stat" : "ffextremeradiationImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/radioactiveweathernew2",
+    "value" : { "stat" : "ffextremeradiationImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/radioactiveweathernew3",
+    "value" : { "stat" : "ffextremeradiationImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/strangeseadrain",
+    "value" : { "stat" : "poisongasImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/sulphuricweathernew",
+    "value" : { "stat" : "sulphuricImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/sulphuricweathernew2",
+    "value" : { "stat" : "sulphuricImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/sulphuricweathernew3",
+    "value" : { "stat" : "sulphuricImmunity", "amount" : 1.0 }
+  },
+  { "op" : "add",
+    "path" : "/sulphuricweathernew4",
+    "value" : { "stat" : "sulphuricImmunity", "amount" : 1.0 }
+  }
+]

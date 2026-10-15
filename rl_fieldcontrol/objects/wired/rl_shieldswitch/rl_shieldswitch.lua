@@ -13,13 +13,22 @@ function init()
   self.dungeonIds = rl_fieldcontrol.specialDungeonIds[validWorldType] or {}
   self.shieldUniqueId = rl_fieldcontrol.shieldswitchUid
 
+  local versioning = root.assetJson("/versioning.config")
+  if validWorldType == "clientshipworld" then
+    self.overridingConsole = rl_fieldcontrol.playershipconsoleUid
+  elseif validWorldType == "playerstation" and
+         versioning.rl_fieldcontrol_playerstation
+  then
+    self.overridingConsole = rl_fieldcontrol.playerstationconsoleUid
+  end
+
   -- Wait 1 second between sync checks.
   self.shieldSyncTime = 1
   self.shieldSyncTimer = self.shieldSyncTime
 
   if storage.state == nil then storage.state = "dead" end
-  object.setInteractive(isInteractive())
   updateAnimationState(storage.state)
+  object.setInteractive(isInteractive())
   if object.outputNodeCount() > 0 then
     object.setOutputNodeLevel(0, storage.state == "on")
   end
@@ -39,9 +48,7 @@ function init()
 end
 
 function die(smash)
-  if storage.state == "on" then
-    transition("off")
-  end
+  if storage.state == "on" then transition("off") end
 end
 
 function onInteraction(args)
@@ -56,7 +63,12 @@ function onInteraction(args)
 end
 
 function update(dt)
-  if entity.uniqueId() ~= self.shieldUniqueId then
+  if self.overridingConsole and
+     world.loadUniqueEntity(self.overridingConsole) ~= 0
+  then
+    transition("dup")
+    script.setUpdateDelta(0)
+  elseif entity.uniqueId() ~= self.shieldUniqueId then
     if world.loadUniqueEntity(self.shieldUniqueId) == 0 then
       object.setUniqueId(self.shieldUniqueId)
       transition("off")
@@ -65,6 +77,7 @@ function update(dt)
       resetUnderlyingTiles()
     else
       transition("dup")
+      script.setUpdateDelta(0)
     end
   else
     self.shieldSyncTimer = self.shieldSyncTimer - dt
@@ -104,6 +117,9 @@ function isInteractive()
   return contains({"off", "on"}, storage.state)
 end
 
+-- Uses a list of tile assignments of the form {position, dungeonId}. If
+-- dungeonId is non-nil, set the tile at position to the dungeonId. If
+-- nil, set the tile at position to the last of the list of dungeonIds.
 function resetUnderlyingTiles()
   for _,v in ipairs(self.tileAssignments) do
     if v[2] then
@@ -118,10 +134,10 @@ end
 
 function transition(state)
   local oldState = storage.state
+  updateAnimationState(state, oldState)
   if state ~= oldState then
     storage.state = state
     object.setInteractive(isInteractive())
-    updateAnimationState(storage.state, oldState)
     if storage.state == "on" then
       setTileProtection(true)
     elseif oldState == "on" then
@@ -140,17 +156,9 @@ end
 function updateAnimationState(state, oldState)
   animator.setAnimationState("switchState", state)
   if state == "on" then
-    object.setLightColor(config.getParameter("lightColor"))
     if oldState and oldState ~= "on" then animator.playSound(state) end
   elseif state == "off" then
-    object.setLightColor(config.getParameter("lightColor"))
     if oldState and oldState == "on" then animator.playSound(state) end
-  elseif state == "error" then
-    object.setLightColor(config.getParameter("lightColorError"))
-  elseif state == "dup" then
-    object.setLightColor(config.getParameter("lightColorError"))
-  else -- dead
-    object.setLightColor({0, 0, 0, 0})
   end
 end
 

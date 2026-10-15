@@ -1,0 +1,16 @@
+{
+  "frameGrid" : {
+    "size" : [16, 24],
+    "dimensions" : [32, 3],
+    "names" : [
+      [ "shieldsdown.1", "shieldsdown.2", "shieldsdown.3", "shieldsdown.4", "shieldsdown.5", "shieldsdown.6", "shieldsdown.7", "shieldsdown.8","shieldsdown.9", "shieldsdown.10", "shieldsdown.11", "shieldsdown.12","shieldsdown.13", "shieldsdown.14", "shieldsdown.15", "shieldsdown.16","shieldsdown.17", "shieldsdown.18", "shieldsdown.19", "shieldsdown.20", "shieldsdown.21", "shieldsdown.22", "shieldsdown.23", "shieldsdown.24", "shieldsdown.25", "shieldsdown.26", "shieldsdown.27", "shieldsdown.28", "shieldsdown.29", "shieldsdown.30", "shieldsdown.31", "shieldsdown.32" ],
+      [ "shieldsup.1", "shieldsup.2", "shieldsup.3", "shieldsup.4", "shieldsup.5", "shieldsup.6", "shieldsup.7", "shieldsup.8", "shieldsup.9", "shieldsup.10", "shieldsup.11", "shieldsup.12", "shieldsup.13", "shieldsup.14", "shieldsup.15", "shieldsup.16", "shieldsup.17", "shieldsup.18" , "shieldsup.19", "shieldsup.20", "shieldsup.21", "shieldsup.22", "shieldsup.23", "shieldsup.24", "shieldsup.25", "shieldsup.26", "shieldsup.27", "shieldsup.28", "shieldsup.29", "shieldsup.30", "shieldsup.31", "shieldsup.32"],
+      [ "dead", "error", "dup", "bulkhead", "hidden" ]
+    ]
+  },
+
+  "aliases" : {
+    "default.default" : "dead",
+    "default" : "default.default"
+  }
+}

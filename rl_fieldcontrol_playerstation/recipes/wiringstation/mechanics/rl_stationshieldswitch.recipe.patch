@@ -1,0 +1,8 @@
+[
+  // This mod extension obsoletes the Station Shield Switch. Replacing
+  // the recipe's "groups" with an empty group disables the recipe.
+  { "op" : "replace",
+    "path" : "/groups",
+    "value" : []
+  }
+]

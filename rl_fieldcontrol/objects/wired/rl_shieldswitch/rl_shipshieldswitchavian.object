@@ -35,9 +35,6 @@
   "scripts" : [ "rl_shieldswitch.lua" ],
   "scriptDelta" : 60,
 
-  "lightColor" : [31, 40, 51],
-  "lightColorError" : [51, 40, 31],
-
   "animation" : "rl_shieldswitch.animation",
   "animationParts" : {
     "bg" : "rl_shipshieldswitchavian.png",

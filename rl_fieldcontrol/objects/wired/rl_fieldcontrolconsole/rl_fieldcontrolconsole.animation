@@ -5,22 +5,39 @@
         "default" : "unregistered",
         "states" : {
           "unregistered" : {
-            "frames" : 4,
-            "cycle" : 2,
-            "mode" : "loop"
+            "frames" : 2,
+            "cycle" : 1,
+            "mode" : "loop",
+            "properties" : {
+              "lightsOn" : ["activeGlow"]
+            }
           },
           "shieldsdown" : {
-            "frames" : 4,
-            "cycle" : 2,
-            "mode" : "loop"
+            "frames" : 18,
+            "cycle" : 1.8,
+            "mode" : "loop",
+            "properties" : {
+              "lightsOn" : ["activeGlow"]
+            }
           },
           "shieldsup" : {
-            "frames" : 4,
-            "cycle" : 2,
-            "mode" : "loop"
+            "frames" : 18,
+            "cycle" : 1.8,
+            "mode" : "loop",
+            "properties" : {
+              "lightsOn" : ["activeGlow"]
+            }
           },
-          "bulkhead" : {},
-          "hidden" : {}
+          "bulkhead" : {
+            "properties" : {
+              "lightsOff" : ["activeGlow"]
+            }
+          },
+          "hidden" : {
+            "properties" : {
+              "lightsOff" : ["activeGlow"]
+            }
+          }
         }
       }
     },
@@ -74,17 +91,17 @@
           "consoleState" : {
             "unregistered" : {
               "properties" : {
-                "image" : "<partImage>:unregistered.<frame>"
+                "image" : "<partImage>:default"
               }
             },
             "shieldsdown" : {
               "properties" : {
-                "image" : "<partImage>:shieldsdown.<frame>"
+                "image" : "<partImage>:default"
               }
             },
             "shieldsup" : {
               "properties" : {
-                "image" : "<partImage>:shieldsup.<frame>"
+                "image" : "<partImage>:default"
               }
             },
             "bulkhead" : {
@@ -100,6 +117,14 @@
           }
         }
       }
+    }
+  },
+
+  "lights" : {
+    "activeGlow" : {
+      "active" : false,
+      "position" : [1.5, 1.5],
+      "color" : [46, 60, 77]
     }
   },
 
