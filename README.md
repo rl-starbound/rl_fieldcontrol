@@ -39,7 +39,7 @@ The ship control console can be crafted at the **wiring station**, in the **mech
 
 ### enhanced Space Station Console
 
-Personal space stations consist of multiple fields. If [Field Control Technology - Station Control Console](README_playerstation.md) is installed, the space station console found on all personal space stations will be upgraded to operate like a field control console, synchronizing its effects across the default fields in a personal space station.
+Personal space stations consist of multiple fields. If [Field Control Technology - Station Control Console](https://community.playstarbound.com/resources/field-control-technology-station-control-console.6408/) is installed, the space station console found on all personal space stations will be upgraded to operate like a field control console, synchronizing its effects across the default fields in a personal space station.
 
 If *Field Control Technology: Station Control Console* is not installed, the **station shield switch** (`rl_stationshieldswitch`) can be used to synchronize the shielding of the default fields in a personal space station. The station shield switch can be crafted at the **wiring station**, in the **mechanics** tab.
 
@@ -64,7 +64,7 @@ Due to how the Starbound core engine handles removed mod assets, some issues may
 
 ## Credits
 
-Thanks to Pilch's "Field Generators" for inspiring this mod.
+Thanks to Pilch's "Field Generators" for inspiring this mod and Meteora for the idea to password protect the console.
 
 ## Collaboration
 

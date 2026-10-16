@@ -175,11 +175,11 @@ After learning the recipe, the ship control console may be crafted at the **wiri
 
 The space station console, also known as the player station console, is found as an unbreakable object on every player space station. In the base game, this console controls only the gravity on the space station. It also enables the user to hide the space station extension slots.
 
-If *Field Control Technology - Space Control Console* is installed in addition to *Field Control Technology* v3.0.0 or later, this console will be upgraded automatically to provide functionality similar to that of the field control console, but applied simultaneously to the multiple fields found by default on player space stations.
+If [Field Control Technology - Station Control Console](https://community.playstarbound.com/resources/field-control-technology-station-control-console.6408/) is installed in addition to *Field Control Technology* v3.0.0 or later, this console will be upgraded automatically to provide functionality similar to that of the field control console, but applied simultaneously to the multiple fields found by default on player space stations.
 
-Virtually all users who install *Field Control Technology* will also want *Field Control Technology - Space Control Console*. It is distributed as a separate mod only due to its increased risk of mod conflicts. (The author is not aware of any actual mod conflicts at this time.)
+Virtually all users who install *Field Control Technology* will also want *Field Control Technology - Station Control Console*. It is distributed as a separate mod only due to its increased risk of mod conflicts. (The author is not aware of any actual mod conflicts at this time.)
 
-![A space station console upgraded to a space control console.](screenshots/station-control-console-unshielded.png)
+![A space station console upgraded to a station control console.](screenshots/station-control-console-unshielded.png)
 
 Differences from the field control console:
 * Gravity cannot be negated, and the gravity control is always active.
@@ -190,7 +190,7 @@ Differences from the field control console:
 
 ![A station control console interface.](screenshots/station-control-console-ui.png)
 
-The space station console cannot be crafted or placed. It is always available on player space stations, and will provide field control functionality as long as *Field Control Technology - Space Control Console* is installed. **Players must not use admin commands to spawn a space station console; placing two space station consoles in one space station will corrupt the world.**
+The space station console cannot be crafted or placed. It is always available on player space stations, and will provide field control functionality as long as *Field Control Technology - Station Control Console* is installed. **Players must not use admin commands to spawn a space station console; placing two space station consoles in one space station will corrupt the world.**
 
 ## Obsolete Objects
 
@@ -212,13 +212,13 @@ Ship shield switches are no longer craftable.
 
 *Deprecated as of v3.0.0*
 
-The **station shield switch** object provides simultaneous shield toggling for the multiple fields found by default in a player space station. If *Field Control Technology - Space Control Console* is installed, all station shield switches will be converted automatically into nonfunctional decorative objects.
+The **station shield switch** object provides simultaneous shield toggling for the multiple fields found by default in a player space station. If *Field Control Technology - Station Control Console* is installed, all station shield switches will be converted automatically into nonfunctional decorative objects.
 
-Station shield switches should be used only if the user cannot install *Field Control Technology - Space Control Console*.
+Station shield switches should be used only if the user cannot install *Field Control Technology - Station Control Console*.
 
 A station shield switch must be placed in a player space station. Only one may be placed in a station; if additional switches are placed they will be nonfunctional. The switch controls only the default fields in the player space station. It does not control additional fields that the user may create, e.g., by using a field control console.
 
-After learning the recipe, the station shield switch may be crafted at the **wiring station**, in the **mechanics** tab, as long as *Field Control Technology - Space Control Console* is not installed. If that mod is installed, the switch will no longer be craftable.
+After learning the recipe, the station shield switch may be crafted at the **wiring station**, in the **mechanics** tab, as long as *Field Control Technology - Station Control Console* is not installed. If that mod is installed, the switch will no longer be craftable.
 
 ## FAQ
 
@@ -244,7 +244,7 @@ After learning the recipe, the station shield switch may be crafted at the **wir
 
 ### Q: I built a base on a mountain of loose silt and shielded it, but the base collapsed anyway. Why wasn't it protected?
 
-**A:** Gravity-affected materials are controlled by the core engine and their movement can't be prevented, even by shielding. Furthermore, when gravity-affected materials move, that counts as adding or removing a material, so the core engine changes the field frequency of the affected blocks, which causes loss of shielding. (See [Caveat: Build-Tune-Shield Loop](#caveat-build-tine-shield-loop).) Unfortunately, there is nothing modders can do to prevent this, and as such, I do not recommend building bases on gravity-affected materials.
+**A:** Gravity-affected materials are controlled by the core engine and their movement can't be prevented, even by shielding. Furthermore, when gravity-affected materials move, that counts as adding or removing a material, so the core engine changes the field frequency of the affected blocks, which causes loss of shielding. (See [Caveat: Build-Tune-Shield Loop](#caveat-build-tune-shield-loop).) Unfortunately, there is nothing modders can do to prevent this, and as such, I do not recommend building bases on gravity-affected materials.
 
 ### Q: Help, I've locked myself inside a shielded room!
 

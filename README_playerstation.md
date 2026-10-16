@@ -1,6 +1,6 @@
 # Starbound mod: Field Control Technology - Station Control Console
 
-This mod is an extension to the **Field Control Technology** mod and requires v3.0.0 or later of that mod. It automatically upgrades the space station console in each personal space station to a **station control console**, capable of controlling not just gravity, but also shielding, atmosphere, and environmental protection within the station.
+This is a mod extension to the [Field Control Technology](https://community.playstarbound.com/resources/field-control-technology.6028/) mod and requires v3.0.0 or later of that mod. It automatically upgrades the space station console in each personal space station to a **station control console**, capable of controlling not just gravity, but also shielding, atmosphere, and environmental protection within the station.
 
 Nearly everyone who uses Field Control Technology will want this mod. It is distributed as a separate mod only due to the risk of conflicts with other mods that alter the space station console. **Players are advised to make a backup of their space stations (or their entire universe) first**, install this mod, and visit one of their personal space stations. If nothing bad happens and the console works as expected, there are no conflicts.
 
